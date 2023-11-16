@@ -1,0 +1,16 @@
+
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" id="HomeSelect" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/games/" id="GameSelect" class="nav-link">Games</a></li>
+      </ul>
+    </header>
+</div>
+<script>
+    let windowLocation = window.location.href.split("/")[3];
+    if (windowLocation === "games"){
+        document.getElementById("GameSelect").classList.add("active");
+        document.getElementById("HomeSelect").classList.remove("active");
+    }
+</script>

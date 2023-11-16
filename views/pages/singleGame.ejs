@@ -1,0 +1,14 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar.ejs') %>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;"><%=game.name%></h1>
+        <p><br></p>
+        <h3 style="text-align: center;">Team size: <%=game.team_size%></p>
+        <h3 style="text-align: center;">Duration: <%=game.duration%></p>
+    </div>
+    <div style="display: flex; justify-content: space-around;">
+        <a href="/games"><button class="backButton">Back</button></a>
+    </div>
+</body>
+<%- include('../partials/footer') %>
