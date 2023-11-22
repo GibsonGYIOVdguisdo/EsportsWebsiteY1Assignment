@@ -67,3 +67,13 @@ function validateGameForm(formName){
     }
     return valid;
 }
+
+module.exports = {
+    isEmpty,
+    isInteger,
+    isNumber,
+    validateNameValue,
+    validateDurationValue,
+    validateTeamSize,
+    validateGameForm
+};

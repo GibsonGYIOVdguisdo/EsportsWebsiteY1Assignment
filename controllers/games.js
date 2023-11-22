@@ -1,5 +1,6 @@
 // You may need to edit this path.
 const pool = require("../data/config.js");
+const gameValidator = require("../public/gameFormValidation.js");
 
 const getAllGames = (request, response, next) => {
     pool.query(`SELECT * FROM game`, (error, result) => {
@@ -36,6 +37,10 @@ const getGameById = (request, response, next) => {
 
 
 const addGame = (request, response, next) => {
+    if (gameValidator.validateNameValue(request.body.name)){
+        return false
+    }
+
     pool.query("INSERT INTO game SET ?", request.body, (error, result) => {
         if (error){
             throw error;
