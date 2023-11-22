@@ -4,6 +4,7 @@
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="/" id="HomeSelect" class="nav-link active" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="/games/" id="GameSelect" class="nav-link">Games</a></li>
+        <li class="nav-item"><a href="/players/" id="PlayerSelect" class="nav-link">Players</a></li>
       </ul>
     </header>
 </div>
@@ -12,5 +13,11 @@
     if (windowLocation === "games"){
         document.getElementById("GameSelect").classList.add("active");
         document.getElementById("HomeSelect").classList.remove("active");
+        document.getElementById("PlayerSelect").classList.remove("active");
+    }
+    if (windowLocation === "players"){
+        document.getElementById("PlayerSelect").classList.add("active");
+        document.getElementById("HomeSelect").classList.remove("active");
+        document.getElementById("GameSelect").classList.remove("active");
     }
 </script>

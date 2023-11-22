@@ -13,7 +13,7 @@ const getAllGames = (request, response, next) => {
         response.render("../views/pages/games", {
             gamesArr: result,
             query: request.query,
-            title: "ESports Championship: Games"
+            title: "ESports Championship: Games",
         });
     });
 };
@@ -36,36 +36,34 @@ const getGameById = (request, response, next) => {
 
 
 const addGame = (request, response, next) => {
-    console.log("INSERT GAME: ");
-    console.log(request.body);
     pool.query("INSERT INTO game SET ?", request.body, (error, result) => {
         if (error){
             throw error;
         }
-        response.send(`Added ${request.body.name} to the database.`);
+        response.redirect("/games?messageToShow=Added " + request.body.name + " to games#game"+id)
     });
 };
 
 const editGame = (request, response, next) => {
     const id = request.params.id;
-    console.log(request.body);
     pool.query(`UPDATE game SET ? WHERE game_id = ?`, [request.body, id], (error, result) => {
         if (error) {
             throw error;
         }
-        response.send(`Edited game: ${request.body.name} in the database.`);
+        response.redirect("/games?messageToShow=Edited " + request.body.name + "#game"+id)
     }); 
 };
 
 const deleteGame = (request, response, next) => {
     const id = request.params.id;
+    const gameName = request.query.gameName;
 
     pool.query(`DELETE FROM game WHERE game_id = ?`, id, (error, result) => {
         if (error){
             throw error;
         }
         console.log(request.body);
-        response.send(`Deleted game: ${request.body.name} from the database.`);
+        response.redirect("/games?messageToShow=Deleted " + gameName)
     });
 };
 

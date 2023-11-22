@@ -13,7 +13,12 @@ app.use(
 );
 router(app);
 
+app.use("/public", express.static('public'))
+
+
 app.set("view engine", "ejs");
+
+
 
 // Start the server
 const server = app.listen(port, (error) => {

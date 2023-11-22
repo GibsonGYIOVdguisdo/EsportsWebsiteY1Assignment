@@ -1,0 +1,68 @@
+
+.gameDisplay{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.gameDisplay:hover{
+    transition: 0.05s;
+    color: rgb(139, 139, 139);
+}
+.button1{
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 4px;
+}
+.banner1{
+    background-color: #4e95ff;
+    display: flex;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.banner1 > p{
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0;
+}
+.banner1 > button{
+    color:rgb(218, 0, 0);
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-width: 0;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.banner1 > button:hover{
+    transition: 0.07s;
+    background-color: rgb(219, 219, 219);
+}
+.backButton{
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    width: 50px;
+}
+.gridContainer{
+    display: grid;
+    grid-template-columns: auto, auto, auto;
+}
+.mainDiv{
+    margin-left: 30px;
+    margin-right: 30px;
+
+}

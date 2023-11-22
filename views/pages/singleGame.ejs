@@ -1,6 +1,9 @@
 <%- include('../partials/head') %>
 <%- include('../partials/navbar.ejs') %>
 <body>
+    <div style="display: flex; justify-content: space-around;">
+        <a href="/games"><button class="button1">Back</button></a>
+    </div>
     <div class="container">
         <h1 style="text-align: center;"><%=game.name%></h1>
         <p><br></p>
@@ -8,7 +11,10 @@
         <h3 style="text-align: center;">Duration: <%=game.duration%></p>
     </div>
     <div style="display: flex; justify-content: space-around;">
-        <a href="/games"><button class="backButton">Back</button></a>
+        <div>
+            <a href="/games/edit/<%=game.game_id%>?gameSize=<%=game.team_size%>&gameName=<%=game.name%>&gameDuration=<%=game.duration%>"><button class="button1">Edit</button></a>
+            <a href="/games/delete/<%=game.game_id%>?gameName=<%=game.name%>"><button class="button1">Delete</button></a>
+        </div>
     </div>
 </body>
 <%- include('../partials/footer') %>
