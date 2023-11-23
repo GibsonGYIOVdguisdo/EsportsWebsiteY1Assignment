@@ -16,7 +16,7 @@ const router = (app) => {
         });
     })
 
-    app.post("/games/add", gamesController.addGame);
+    app.post("/games/add", [gamesController.performGameValidation, gamesController.addGame]);
 
     app.get("/games/edit/:id", (request, response) => {
         response.render("../views/pages/editGame.ejs",{
@@ -28,7 +28,7 @@ const router = (app) => {
         });
     })
 
-    app.post("/games/edit/:id", gamesController.editGame);
+    app.post("/games/edit/:id", [gamesController.performGameValidation, gamesController.editGame]);
 
     app.get("/games/delete/:id", (request, response) => {
         response.render("../views/pages/confirmDelete.ejs", {

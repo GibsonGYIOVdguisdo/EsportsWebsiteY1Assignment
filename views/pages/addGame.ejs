@@ -4,10 +4,9 @@
 <div style="display: flex; justify-content: space-around;">
     <a href="/games/"><button class="button1">Back</button></a>
 </div>
-<script src="/public/gameFormValidation.js"></script>
 <div class="container px-5 my-5">
     <h1>Add a game</h1>
-    <form onsubmit="return validateGameForm('addGame')" action="/games/add" method="post" name="addGame" >
+    <form action="/games/add" method="post" name="addGame" >
         <p style="margin-bottom: 3px;">Game name: <input class="form-control" name="name" type="text" /></p>
         <p id="nameStatus"><br></p>
         <p style="margin-bottom: 3px;">Match duration: <input class="form-control" name="duration" type="text" /></p>    
@@ -17,4 +16,5 @@
         <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Add game</button>
     </form>
 </div>
+<script src="/public/gameFormValidation.js"></script>
 <%- include('../partials/footer') %>

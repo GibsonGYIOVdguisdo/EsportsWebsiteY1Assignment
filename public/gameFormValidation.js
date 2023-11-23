@@ -1,3 +1,4 @@
+
 function isEmpty(val){
     return !val.trim();
 }
@@ -45,36 +46,83 @@ function validateGameForm(formName){
     const nameField = formToValidate["name"];
     const durationField = formToValidate["duration"];
     const teamSizeField = formToValidate["team_size"];
-    let errors;
+    let errors = {
+        "Name": [],
+        "Duration": [],
+        "Size": []
+    };
     let valid = true;
+
+    errors["Name"] = validateNameValue(nameField.value)
+    if (!!errors["Name"].length){
+        valid = false;
+    }
+
+    errors["Duration"] = validateDurationValue(durationField.value)
+    if (!!errors["Duration"].length){
+        valid = false;
+    }
+    
+    errors["Size"] = validateTeamSize(teamSizeField.value)
+    if (!!errors["Size"].length){
+        valid = false;
+    }
+    showValidationErrors(errors);
+    return valid;
+}
+
+function showValidationErrors(errors){
+    console.log(errors)
     let errorMessages = {
         "Empty": " is required",
         "NotNumber": " must be a number", 
         "NotInteger": " must be a whole number"
     };
 
-    errors = validateNameValue(nameField.value)
-    if (!!errors.length){
-        valid = false;
-        document.getElementById("nameStatus").innerText = "The name field" + errorMessages[errors[0]]
+    if (!!errors["Name"].length){
+        document.getElementById("nameStatus").innerText = "The name field" + errorMessages[errors["Name"][0]]
     } else{
         document.getElementById("nameStatus").innerHTML = "<br>"
     }
 
-    errors = validateDurationValue(durationField.value)
-    if (!!errors.length){
-        valid = false;
-        document.getElementById("durationStatus").innerText = "The name field" + errorMessages[errors[0]]
+    if (!!errors["Duration"].length){
+        document.getElementById("durationStatus").innerText = "The name field" + errorMessages[errors["Duration"][0]]
     } else{
         document.getElementById("durationStatus").innerHTML = "<br>"
     }
     
-    errors = validateTeamSize(teamSizeField.value)
-    if (!!errors.length){
-        valid = false;
-        document.getElementById("sizeStatus").innerText = "The name field" + errorMessages[errors[0]]
+    if (!!errors["Size"].length){
+        document.getElementById("sizeStatus").innerText = "The name field" + errorMessages[errors["Size"][0]]
     } else{
         document.getElementById("sizeStatus").innerHTML = "<br>"
     }
-    return valid;
 }
+
+var urlQuery = window.location.search;
+var urlParams = new URLSearchParams(urlQuery);
+
+
+
+let nameIssues = urlParams.get("Name").split(",");
+let durationIssues = urlParams.get("Duration").split(",");
+let sizeIssues = urlParams.get("Size").split(",");
+
+
+if (nameIssues == [""]){
+    nameIssues = [];
+}
+if (durationIssues == [""]){
+    durationIssues = [];
+}
+if (sizeIssues == [""]){
+    sizeIssues = [];
+}
+
+var errorsOnLoad = {
+    "Name": nameIssues,
+    "Duration": durationIssues,
+    "Size": sizeIssues
+}
+
+console.log(errorsOnLoad);
+showValidationErrors(errorsOnLoad);

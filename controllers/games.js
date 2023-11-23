@@ -1,6 +1,21 @@
 // You may need to edit this path.
+const { response } = require("express");
 const pool = require("../data/config.js");
-const gameValidator = require("../public/gameFormValidation.js");
+const gameValidator = require("../data/gameValidation.js");
+
+const performGameValidation = (request, response, next) => {
+    const name = request.body.name;
+    const duration = request.body.duration;
+    const team_size = request.body.team_size;
+    const errors = gameValidator.validateGame(name, duration, team_size);
+    if (!errors["Name"].length && !errors["Size"].length && !errors["Duration"].length){
+        console.log("asda")
+    }
+    else{
+        console.log(next);
+        response.redirect(`?Name=${errors["Name"]}&Size=${errors["Size"]}&Duration=${errors["Duration"]}`)
+    }
+};
 
 const getAllGames = (request, response, next) => {
     pool.query(`SELECT * FROM game`, (error, result) => {
@@ -35,17 +50,19 @@ const getGameById = (request, response, next) => {
     });
 };
 
-
 const addGame = (request, response, next) => {
-    if (gameValidator.validateNameValue(request.body.name)){
-        return false
+    console.log("not caught");
+    const game = {
+        "name": request.body.name,
+        "duration": request.body.duration,
+        "team_size": request.body.team_size
     }
 
-    pool.query("INSERT INTO game SET ?", request.body, (error, result) => {
+    pool.query("INSERT INTO game SET ?", game, (error, result) => {
         if (error){
             throw error;
         }
-        response.redirect("/games?messageToShow=Added " + request.body.name + " to games#game"+id)
+        response.redirect("/games?messageToShow=Added " + request.body.name)
     });
 };
 
@@ -80,5 +97,6 @@ module.exports = {
     getGameById,
     addGame,
     editGame,
+    performGameValidation,
     deleteGame
 };
