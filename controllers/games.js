@@ -9,10 +9,9 @@ const performGameValidation = (request, response, next) => {
     const team_size = request.body.team_size;
     const errors = gameValidator.validateGame(name, duration, team_size);
     if (!errors["Name"].length && !errors["Size"].length && !errors["Duration"].length){
-        console.log("asda")
+        next();
     }
     else{
-        console.log(next);
         response.redirect(`?Name=${errors["Name"]}&Size=${errors["Size"]}&Duration=${errors["Duration"]}`)
     }
 };
