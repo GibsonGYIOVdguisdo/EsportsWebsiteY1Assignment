@@ -16,6 +16,19 @@ const performGameValidation = (request, response, next) => {
     }
 };
 
+const convertToItem = (data) => {
+    item = {
+        "name": data["name"],
+        "id": data["game_id"],
+        "category": "games",
+        "display": [
+            ["Team size", data["team_size"]],
+            ["Duration", data["duration"]]
+        ]
+    };
+    return(item);
+}
+
 const getAllGames = (request, response, next) => {
     pool.query(`SELECT * FROM game`, (error, result) => {
         if (error){
@@ -34,15 +47,16 @@ const getAllGames = (request, response, next) => {
 };
 
 const getGameById = (request, response, next) => {
-    const id = request.params.id;    
+    const id = request.params.id;  
     pool.query(`
         SELECT * FROM game
         WHERE game.game_id = ?`, id, (error, result) => {
         if (error){
             throw error;
         }
-        response.render("../views/pages/singleGame", {
-            game: result[0],
+        console.log(convertToItem(result[0]));
+        response.render("../views/pages/singleView.ejs", {
+            item: convertToItem(result[0]),
             query: request.query,
             title: "ESports Championship: Games"
         });
