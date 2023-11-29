@@ -1,18 +1,8 @@
-function isEmpty(val){
-    return !val.trim();
-}
-
-function isInteger(val){
-    return parseInt(val) === parseFloat(val);
-}
-
-function isNumber(val){
-    return !!parseFloat(val);
-}
+const validator = require("../data/basicValidation.js");
 
 function validateNameValue(val){
     let issues = []
-    if (isEmpty(val)){
+    if (validator.isEmpty(val)){
         issues.push("Empty")
     }
     return issues;
@@ -20,10 +10,10 @@ function validateNameValue(val){
 
 function validateDurationValue(val){
     let issues = []
-    if (isEmpty(val)){
+    if (validator.isEmpty(val)){
         issues.push("Empty")
     }
-    if (!isNumber(val)){
+    if (!validator.isNumber(val)){
         issues.push("NotNumber")
     }
     return issues;
@@ -31,10 +21,10 @@ function validateDurationValue(val){
 
 function validateTeamSize(val){
     let issues = []
-    if (isEmpty(val)){
+    if (validator.isEmpty(val)){
         issues.push("Empty")
     }
-    if (!isInteger(val)){
+    if (!validator.isInteger(val)){
         issues.push("NotInteger")
     }
     return issues;
