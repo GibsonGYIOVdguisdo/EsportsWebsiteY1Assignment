@@ -1,5 +1,20 @@
-
+// You may need to edit this path.
+const { response } = require("express");
 const pool = require("../data/config.js");
+const playerValidator = require("../data/playerValidation.js");
+
+const performPlayerValidation = (request, response, next) => {
+    const name = request.body.name;
+    const duration = request.body.duration;
+    const team_size = request.body.team_size;
+    const errors = playerValidator.validatePlayer(name, duration, team_size);
+    if (!errors["Name"].length && !errors["Size"].length && !errors["Duration"].length){
+        next();
+    }
+    else{
+        response.redirect(`?Name=${errors["Name"]}&Size=${errors["Size"]}&Duration=${errors["Duration"]}`)
+    }
+};
 
 const getAllPlayers = (request, response, next) => {
     pool.query(`SELECT * FROM player`, (error, result) => {
@@ -10,7 +25,7 @@ const getAllPlayers = (request, response, next) => {
         //response.send(result);
         // Or, by looking in the server console:
         //console.log(result);
-        response.render("../views/pages/players", {
+        response.render("../views/pages/players/players", {
             playersArr: result,
             query: request.query,
             title: "ESports Championship: Players",
@@ -19,30 +34,42 @@ const getAllPlayers = (request, response, next) => {
 };
 
 const getPlayerById = (request, response, next) => {
-    const id = request.params.id;    
+    const id = request.params.id;  
     pool.query(`
         SELECT * FROM player
         WHERE player.player_id = ?`, id, (error, result) => {
         if (error){
             throw error;
         }
-        response.render("../views/pages/singleplayer", {
+        response.render("../views/pages/players/singlePlayer.ejs", {
             player: result[0],
             query: request.query,
-            title: "ESports Championship: players"
+            title: "ESports Championship: Players"
         });
     });
 };
 
-
 const addPlayer = (request, response, next) => {
-    pool.query("INSERT INTO player SET ?", request.body, (error, result) => {
+    console.log("not caught");
+    const player = {
+        "name": request.body.name,
+        "duration": request.body.duration,
+        "team_size": request.body.team_size
+    }
+
+    pool.query("INSERT INTO player SET ?", player, (error, result) => {
         if (error){
             throw error;
         }
-        response.redirect("/players?messageToShow=Added " + request.body.name + " to players#player"+id)
+        response.redirect("/players?messageToShow=Added " + request.body.name)
     });
 };
+
+const addPlayerPage = (request, response, next) => {
+    response.render("../views/pages/players/addPlayer.ejs",{
+        "title": "Add a player"
+    });
+}
 
 const editPlayer = (request, response, next) => {
     const id = request.params.id;
@@ -53,6 +80,16 @@ const editPlayer = (request, response, next) => {
         response.redirect("/players?messageToShow=Edited " + request.body.name + "#player"+id)
     }); 
 };
+
+const editPlayerPage = (request, response, next) => {
+    response.render("../views/pages/players/editPlayer.ejs",{
+        "title": "Edit a player",
+        "playerName": request.query.playerName,
+        "playerDuration": request.query.playerDuration,
+        "playerSize": request.query.playerSize,
+        "playerId": request.params["id"]
+    });
+}
 
 const deletePlayer = (request, response, next) => {
     const id = request.params.id;
@@ -67,12 +104,23 @@ const deletePlayer = (request, response, next) => {
     });
 };
 
+const deletePlayerPage = (request, response, next) => {
+    response.render("../views/pages/players/confirmDelete.ejs", {
+        playerId: request.params["id"],
+        playerName: request.query["playerName"]
+    })
+}
+
 
 // You should add controller methods to render forms, too...
 module.exports = {
     getAllPlayers,
     getPlayerById,
     addPlayer,
+    addPlayerPage,
     editPlayer,
-    deletePlayer
+    editPlayerPage,
+    performPlayerValidation,
+    deletePlayer,
+    deletePlayerPage
 };

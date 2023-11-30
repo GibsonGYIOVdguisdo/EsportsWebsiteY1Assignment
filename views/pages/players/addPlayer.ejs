@@ -1,15 +1,20 @@
-<%- include('../partials/head') %>
-<%- include('../partials/navbar') %>
+<%- include('../../partials/head') %>
+<%- include('../../partials/navbar') %>
+
 <div style="display: flex; justify-content: space-around;">
     <a href="/players/"><button class="button1">Back</button></a>
 </div>
 <div class="container px-5 my-5">
-    <h1>Add a game</h1>
-    <form action="/players/add" method="post">
-        <p>Game name: <input class="form-control" name="name" type="text" /></p>
-        <p>Match duration: <input class="form-control" name="duration" type="text" /></p>    
-        <p>Team size:<input class="form-control" name="team_size" type="text" /></p>
-        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Add game</button>
+    <h1>Add a player</h1>
+    <form action="/players/add" method="post" name="addPlayer" >
+        <p style="margin-bottom: 3px;">Player name: <input class="form-control" name="name" type="text" /></p>
+        <p id="nameStatus"><br></p>
+        <p style="margin-bottom: 3px;">Match duration: <input class="form-control" name="duration" type="text" /></p>    
+        <p id="durationStatus"><br></p>
+        <p style="margin-bottom: 3px;">Team size:<input class="form-control" name="team_size" type="text" /></p>
+        <p id="sizeStatus"><br></p>
+        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Add player</button>
     </form>
 </div>
+<script src="/public/playerFormValidation.js"></script>
 <%- include('../partials/footer') %>

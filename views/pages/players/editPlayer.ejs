@@ -1,0 +1,19 @@
+<%- include('../../partials/head') %>
+<%- include('../../partials/navbar') %>
+<div style="display: flex; justify-content: space-around;">
+    <a href="/players/<%=playerId%>"><button class="button1">Back</button></a>
+</div>
+<script src="/public/playerFormValidation.js"></script>
+<div class="container px-5 my-5">
+    <h1>Edit a player</h1>
+    <form onsubmit="return validatePlayerForm('editPlayer')" name="editPlayer" action="/players/edit/<%=playerId%>" method="post">
+        <p>Player name: <input class="form-control" name="name" type="text" value="<%=playerName%>" placeholder="<%=playerName%>"/></p>
+        <p id="nameStatus"><br></p>
+        <p>Match duration: <input class="form-control" name="duration" type="text" value="<%=playerDuration%>" placeholder="<%=playerName%>"></p>    
+        <p id="durationStatus"><br></p>
+        <p>Team size:<input class="form-control" name="team_size" type="text" value="<%=playerSize%>" placeholder="<%=playerName%>"></p>
+        <p id="sizeStatus"><br></p>
+        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm</button>
+    </form>
+</div>
+<%- include('../../partials/footer') %>
