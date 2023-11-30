@@ -1,5 +1,5 @@
-<%- include('../partials/head') %>
-<%- include('../partials/navbar.ejs') %>
+<%- include('../../partials/head') %>
+<%- include('../../partials/navbar.ejs') %>
 <body>
     <%if (typeof query.messageToShow != 'undefined' ){%>
     <script>
@@ -23,7 +23,7 @@
         <h1 style="margin-left: 10px;">Games</h1>
         <div class="gridContainer" id="gridContainer">
             <% gamesArr.forEach((game)=> { %>
-                <%- include('../partials/gamedisplay', {game: game}) %>
+                <%- include('../../partials/gamedisplay', {game: game}) %>
             <% }) %>
         </div>
     </div>
@@ -53,4 +53,4 @@
     </script>
 
 </body>
-<%- include('../partials/footer') %>
+<%- include('../../partials/footer') %>
