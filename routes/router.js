@@ -10,34 +10,15 @@ const router = (app) => {
 
     app.get("/games", gamesController.getAllGames);
 
-    app.get("/games/add", (request, response) => {
-        response.render("../views/pages/addGame.ejs",{
-            "title": "Add a game"
-        });
-    })
+    app.get("/games/add", gamesController.addGamePage);
 
     app.post("/games/add", [gamesController.performGameValidation, gamesController.addGame]);
 
-    app.get("/games/edit/:id", (request, response) => {
-        response.render("../views/pages/editGame.ejs",{
-            "title": "Edit a game",
-            "gameName": request.query.gameName,
-            "gameDuration": request.query.gameDuration,
-            "gameSize": request.query.gameSize,
-            "gameId": request.params["id"]
-        });
-    })
+    app.get("/games/edit/:id", gamesController.editGamePage);
 
     app.post("/games/edit/:id", [gamesController.performGameValidation, gamesController.editGame]);
 
-    app.get("/games/delete/:id", (request, response) => {
-        response.render("../views/pages/confirmDelete.ejs", {
-            gameId: request.params["id"],
-            gameName: request.query["gameName"]
-        })
-    });
-
-
+    app.get("/games/delete/:id", gamesController.deleteGamePage);
 
     app.post("/games/delete/:id", gamesController.deleteGame);
 
@@ -45,9 +26,19 @@ const router = (app) => {
 
     app.get("/players", playersController.getAllPlayers);
 
+    app.get("/players/add", playersController.addPlayerPage);
+
+    app.post("/players/add", [playersController.performPlayerValidation, playersController.addPlayer]);
+
+    app.get("/players/edit/:id", playersController.editPlayerPage);
+
+    app.post("/players/edit/:id", [playersController.performPlayerValidation, playersController.editPlayer]);
+
+    app.get("/players/delete/:id", playersController.deletePlayerPage);
+
+    app.post("/players/delete/:id", playersController.deletePlayer);
+
     app.get("/players/:id", playersController.getPlayerById);
-    app.get("/players/add", playersController.addPlayer);
-    app.post("/players/add", playersController.getAllPlayers);
 
 
     // app.get("/*", (request, response) => {

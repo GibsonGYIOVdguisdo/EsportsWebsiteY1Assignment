@@ -16,19 +16,6 @@ const performGameValidation = (request, response, next) => {
     }
 };
 
-const convertToItem = (data) => {
-    item = {
-        "name": data["name"],
-        "id": data["game_id"],
-        "category": "games",
-        "display": [
-            ["Team size", data["team_size"]],
-            ["Duration", data["duration"]]
-        ]
-    };
-    return(item);
-}
-
 const getAllGames = (request, response, next) => {
     pool.query(`SELECT * FROM game`, (error, result) => {
         if (error){
@@ -38,7 +25,7 @@ const getAllGames = (request, response, next) => {
         //response.send(result);
         // Or, by looking in the server console:
         //console.log(result);
-        response.render("../views/pages/games", {
+        response.render("../views/pages/games/games", {
             gamesArr: result,
             query: request.query,
             title: "ESports Championship: Games",
@@ -54,9 +41,8 @@ const getGameById = (request, response, next) => {
         if (error){
             throw error;
         }
-        console.log(convertToItem(result[0]));
-        response.render("../views/pages/singleView.ejs", {
-            item: convertToItem(result[0]),
+        response.render("../views/pages/games/singleGame.ejs", {
+            game: result[0],
             query: request.query,
             title: "ESports Championship: Games"
         });
@@ -79,6 +65,12 @@ const addGame = (request, response, next) => {
     });
 };
 
+const addGamePage = (request, response, next) => {
+    response.render("../views/pages/games/addGame.ejs",{
+        "title": "Add a game"
+    });
+}
+
 const editGame = (request, response, next) => {
     const id = request.params.id;
     pool.query(`UPDATE game SET ? WHERE game_id = ?`, [request.body, id], (error, result) => {
@@ -88,6 +80,16 @@ const editGame = (request, response, next) => {
         response.redirect("/games?messageToShow=Edited " + request.body.name + "#game"+id)
     }); 
 };
+
+const editGamePage = (request, response, next) => {
+    response.render("../views/pages/games/editGame.ejs",{
+        "title": "Edit a game",
+        "gameName": request.query.gameName,
+        "gameDuration": request.query.gameDuration,
+        "gameSize": request.query.gameSize,
+        "gameId": request.params["id"]
+    });
+}
 
 const deleteGame = (request, response, next) => {
     const id = request.params.id;
@@ -102,6 +104,12 @@ const deleteGame = (request, response, next) => {
     });
 };
 
+const deleteGamePage = (request, response, next) => {
+    response.render("../views/pages/games/confirmDelete.ejs", {
+        gameId: request.params["id"],
+        gameName: request.query["gameName"]
+    })
+}
 
 
 // You should add controller methods to render forms, too...
@@ -109,7 +117,10 @@ module.exports = {
     getAllGames,
     getGameById,
     addGame,
+    addGamePage,
     editGame,
+    editGamePage,
     performGameValidation,
-    deleteGame
+    deleteGame,
+    deleteGamePage
 };
