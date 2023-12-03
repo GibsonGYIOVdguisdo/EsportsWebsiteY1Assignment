@@ -78,7 +78,7 @@ function showValidationErrors(errors){
         "NotNumber": " must be a number", 
         "NotInteger": " must be a whole number"
     };
-
+    console.log(!!errors["Name"].length);
     if (!!errors["Name"].length){
         document.getElementById("nameStatus").innerText = "The name field" + errorMessages[errors["Name"][0]]
     } else{
@@ -108,13 +108,13 @@ let durationIssues = urlParams.get("Duration").split(",");
 let sizeIssues = urlParams.get("Size").split(",");
 
 
-if (nameIssues == [""]){
+if (nameIssues == ""){
     nameIssues = [];
 }
-if (durationIssues == [""]){
+if (durationIssues == ""){
     durationIssues = [];
 }
-if (sizeIssues == [""]){
+if (sizeIssues == ""){
     sizeIssues = [];
 }
 
