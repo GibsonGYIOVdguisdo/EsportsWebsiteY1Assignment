@@ -5,14 +5,13 @@ const playerValidator = require("../data/playerValidation.js");
 
 const performPlayerValidation = (request, response, next) => {
     const name = request.body.name;
-    const duration = request.body.duration;
-    const team_size = request.body.team_size;
-    const errors = playerValidator.validatePlayer(name, duration, team_size);
-    if (!errors["Name"].length && !errors["Size"].length && !errors["Duration"].length){
+    const email = request.body.email;
+    const errors = playerValidator.validatePlayer(name, email);
+    if (!errors["Name"].length && !errors["Email"].length){
         next();
     }
     else{
-        response.redirect(`?Name=${errors["Name"]}&Size=${errors["Size"]}&Duration=${errors["Duration"]}`)
+        response.redirect(`?Name=${errors["Name"]}&Email=${errors["Email"]}`)
     }
 };
 
@@ -53,8 +52,7 @@ const addPlayer = (request, response, next) => {
     console.log("not caught");
     const player = {
         "name": request.body.name,
-        "duration": request.body.duration,
-        "team_size": request.body.team_size
+        "email": request.body.email,
     }
 
     pool.query("INSERT INTO player SET ?", player, (error, result) => {
@@ -105,7 +103,7 @@ const deletePlayer = (request, response, next) => {
 };
 
 const deletePlayerPage = (request, response, next) => {
-    response.render("../views/pages/players/confirmDelete.ejs", {
+    response.render("../views/pages/confirmDelete.ejs", {
         playerId: request.params["id"],
         playerName: request.query["playerName"]
     })

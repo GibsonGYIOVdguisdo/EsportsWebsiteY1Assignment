@@ -8,42 +8,28 @@ function validateNameValue(val){
     return issues;
 }
 
-function validateDurationValue(val){
+function validateEmailValue(val){
     let issues = []
     if (validator.isEmpty(val)){
         issues.push("Empty")
     }
-    if (!validator.isNumber(val)){
-        issues.push("NotNumber")
+    if (val.indexOf("@") === -1){
+        issues.push("NotEmail")
     }
-    return issues;
+    return issues
 }
 
-function validateTeamSize(val){
-    let issues = []
-    if (validator.isEmpty(val)){
-        issues.push("Empty")
-    }
-    if (!validator.isInteger(val)){
-        issues.push("NotInteger")
-    }
-    return issues;
-}
-
-function validatePlayer(name, duration, size){
+function validatePlayer(name, email){
     errors = {};
 
-    errors["Name"] = validateNameValue(name);
+    errors["Email"] = validateNameValue(name);
 
-    errors["Duration"] = validateDurationValue(duration);
-    
-    errors["Size"] = validateTeamSize(size);
+    errors["Name"] = validateEmailValue(email);
 
     return errors;
 }
 
+
 module.exports = {
-    validateDurationValue,
-    validatePlayer,
-    validateTeamSize
+    validatePlayer
 };

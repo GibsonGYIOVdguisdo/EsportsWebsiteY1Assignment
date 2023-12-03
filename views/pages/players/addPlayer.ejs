@@ -6,15 +6,13 @@
 </div>
 <div class="container px-5 my-5">
     <h1>Add a player</h1>
-    <form action="/players/add" method="post" name="addPlayer" >
+    <form onsubmit="return validatePlayerForm('addPlayer')" action="/players/add" method="post" name="addPlayer" >
         <p style="margin-bottom: 3px;">Player name: <input class="form-control" name="name" type="text" /></p>
         <p id="nameStatus"><br></p>
-        <p style="margin-bottom: 3px;">Match duration: <input class="form-control" name="duration" type="text" /></p>    
-        <p id="durationStatus"><br></p>
-        <p style="margin-bottom: 3px;">Team size:<input class="form-control" name="team_size" type="text" /></p>
-        <p id="sizeStatus"><br></p>
+        <p style="margin-bottom: 3px;">Player email: <input class="form-control" name="email" type="text" /></p>    
+        <p id="emailStatus"><br></p>
         <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Add player</button>
     </form>
 </div>
 <script src="/public/playerFormValidation.js"></script>
-<%- include('../partials/footer') %>
+<%- include('../../partials/footer') %>
