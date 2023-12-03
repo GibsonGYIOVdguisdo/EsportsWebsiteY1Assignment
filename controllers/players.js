@@ -83,8 +83,7 @@ const editPlayerPage = (request, response, next) => {
     response.render("../views/pages/players/editPlayer.ejs",{
         "title": "Edit a player",
         "playerName": request.query.playerName,
-        "playerDuration": request.query.playerDuration,
-        "playerSize": request.query.playerSize,
+        "playerEmail": request.query.playerEmail,
         "playerId": request.params["id"]
     });
 }
@@ -98,14 +97,15 @@ const deletePlayer = (request, response, next) => {
             throw error;
         }
         console.log(request.body);
-        response.redirect("/players?messageToShow=Deleted " + playerName)
+        response.redirect("/players/?messageToShow=Deleted " + playerName)
     });
 };
 
 const deletePlayerPage = (request, response, next) => {
     response.render("../views/pages/confirmDelete.ejs", {
-        playerId: request.params["id"],
-        playerName: request.query["playerName"]
+        category: "players",
+        id: request.params["id"],
+        name: request.query["playerName"]
     })
 }
 

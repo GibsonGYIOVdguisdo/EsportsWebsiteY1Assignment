@@ -100,14 +100,15 @@ const deleteGame = (request, response, next) => {
             throw error;
         }
         console.log(request.body);
-        response.redirect("/games?messageToShow=Deleted " + gameName)
+        response.redirect("/games/?messageToShow=Deleted " + gameName)
     });
 };
 
 const deleteGamePage = (request, response, next) => {
-    response.render("../views/pages/games/confirmDelete.ejs", {
-        gameId: request.params["id"],
-        gameName: request.query["gameName"]
+    response.render("../views/pages/confirmDelete.ejs", {
+        category: "games",
+        id: request.params["id"],
+        name: request.query["gameName"]
     })
 }
 

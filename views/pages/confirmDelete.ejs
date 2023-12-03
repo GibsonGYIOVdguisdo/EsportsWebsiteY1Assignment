@@ -3,14 +3,14 @@
 
 
 <div style="display: flex; justify-content: space-around;">
-    <a href="/games/<%=gameId%>"><button class="button1">Back</button></a>
+    <a href="/<%=category%>/<%=id%>"><button class="button1">Back</button></a>
 </div>
 
 <h1 style="text-align: center;">ARE YOU SURE YOU WANT TO DELETE</h1>
-<h1 style="text-align: center;">"<%=gameName%>"</h1>
+<h1 style="text-align: center;">"<%=name%>"</h1>
 
 <div style="display: flex; justify-content: space-around;">
-<form action="/games/delete/<%=gameId%>?gameName=<%=gameName%>" method="post">
+<form action="/<%=category%>/delete/<%=id%>?name=<%=name%>" method="post">
     <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm delete</button>
 </form>
 </div>
