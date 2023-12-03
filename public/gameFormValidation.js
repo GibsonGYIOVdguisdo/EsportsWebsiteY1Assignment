@@ -102,27 +102,28 @@ var urlQuery = window.location.search;
 var urlParams = new URLSearchParams(urlQuery);
 
 
+if (urlParams.size) {
+    let nameIssues = urlParams.get("Name").split(",");
+    let durationIssues = urlParams.get("Duration").split(",");
+    let sizeIssues = urlParams.get("Size").split(",");
 
-let nameIssues = urlParams.get("Name").split(",");
-let durationIssues = urlParams.get("Duration").split(",");
-let sizeIssues = urlParams.get("Size").split(",");
 
+    if (nameIssues == ""){
+        nameIssues = [];
+    }
+    if (durationIssues == ""){
+        durationIssues = [];
+    }
+    if (sizeIssues == ""){
+        sizeIssues = [];
+    }
 
-if (nameIssues == ""){
-    nameIssues = [];
+    var errorsOnLoad = {
+        "Name": nameIssues,
+        "Duration": durationIssues,
+        "Size": sizeIssues
+    }
+
+    console.log(errorsOnLoad);
+    showValidationErrors(errorsOnLoad);
 }
-if (durationIssues == ""){
-    durationIssues = [];
-}
-if (sizeIssues == ""){
-    sizeIssues = [];
-}
-
-var errorsOnLoad = {
-    "Name": nameIssues,
-    "Duration": durationIssues,
-    "Size": sizeIssues
-}
-
-console.log(errorsOnLoad);
-showValidationErrors(errorsOnLoad);
