@@ -2,7 +2,7 @@
 <div class="container">
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/" id="HomeSelect" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/" id="HomeSelect" class="nav-link" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="/games/" id="GameSelect" class="nav-link">Games</a></li>
         <li class="nav-item"><a href="/players/" id="PlayerSelect" class="nav-link">Players</a></li>
       </ul>
@@ -12,12 +12,11 @@
     let windowLocation = window.location.href.split("/")[3];
     if (windowLocation === "games"){
         document.getElementById("GameSelect").classList.add("active");
-        document.getElementById("HomeSelect").classList.remove("active");
-        document.getElementById("PlayerSelect").classList.remove("active");
     }
-    if (windowLocation === "players"){
+    else if (windowLocation === "players"){
         document.getElementById("PlayerSelect").classList.add("active");
-        document.getElementById("HomeSelect").classList.remove("active");
-        document.getElementById("GameSelect").classList.remove("active");
+    }
+    else{
+        document.getElementById("HomeSelect").classList.add("active");
     }
 </script>
