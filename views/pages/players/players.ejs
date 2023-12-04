@@ -25,6 +25,20 @@
             <% playersArr.forEach((player)=> { %>
                 <%- include('../../partials/playerdisplay', {player: player}) %>
             <% }) %>
+            <a href="/players/add" class="gameDisplay">
+                <div class="card" style="margin-top: 20px; background-color: rgb(247, 247, 247);">
+                    <div class="card-header">
+                        <h4 style="overflow: hidden; height: 30px; text-align: center;">
+                            Click to add player
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        <p><br></p>
+                        </blockquote>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 
