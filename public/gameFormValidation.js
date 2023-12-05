@@ -7,36 +7,72 @@ function isInteger(val){
     return parseInt(val) === parseFloat(val);
 }
 
+function isInRange(val){
+    if (parseFloat(val) > 2147483647){
+        return false;
+    }
+    if (parseFloat(val) < -2147483648){
+        return false;
+    }
+    return true;
+}
+
 function isNumber(val){
     return !!parseFloat(val);
+}
+
+function isMoreThanOne(val){
+    return val > 0;
+}
+
+function isMaximumLength(val){
+    if (val.length > 200){
+        return true;
+    }
+    return false;
 }
 
 function validateNameValue(val){
     let issues = []
     if (isEmpty(val)){
-        issues.push("Empty")
+        issues.push("Empty");
+    }
+    if (isMaximumLength(val)){
+        issues.push("Length");
     }
     return issues;
 }
 
 function validateDurationValue(val){
-    let issues = []
+    let issues = [];
     if (isEmpty(val)){
-        issues.push("Empty")
+        issues.push("Empty");
     }
     if (!isNumber(val)){
-        issues.push("NotNumber")
+        issues.push("NotNumber");
+    }
+    if (!isInRange(val)){
+        issues.push("IntLimit");
+    }
+    if (!isMoreThanOne(val)){
+        issues.push("LessThan1");
     }
     return issues;
 }
 
 function validateTeamSize(val){
-    let issues = []
+    let issues = [];
     if (isEmpty(val)){
-        issues.push("Empty")
+        issues.push("Empty");
     }
     if (!isInteger(val)){
-        issues.push("NotInteger")
+        issues.push("NotInteger");
+    }
+    if (!isInRange(val)){
+        issues.push("IntLimit");
+    }
+    if (!isMoreThanOne(val)){
+        issues.push("LessThan1");
     }
     return issues;
 }
@@ -76,7 +112,10 @@ function showValidationErrors(errors){
     let errorMessages = {
         "Empty": " is required",
         "NotNumber": " must be a number", 
-        "NotInteger": " must be a whole number"
+        "NotInteger": " must be a whole number",
+        "Length": " must be less than 200 characters",
+        "IntLimit": " must be less than 2,147,483,648",
+        "LessThan1": " must be more than 0"
     };
     console.log(!!errors["Name"].length);
     if (!!errors["Name"].length){
