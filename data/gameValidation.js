@@ -3,29 +3,44 @@ const validator = require("../data/basicValidation.js");
 function validateNameValue(val){
     let issues = []
     if (validator.isEmpty(val)){
-        issues.push("Empty")
+        issues.push("Empty");
+    }
+    if (validator.isMaximumLength(val)){
+        issues.push("Length");
     }
     return issues;
 }
 
 function validateDurationValue(val){
-    let issues = []
+    let issues = [];
     if (validator.isEmpty(val)){
-        issues.push("Empty")
+        issues.push("Empty");
     }
     if (!validator.isNumber(val)){
-        issues.push("NotNumber")
+        issues.push("NotNumber");
+    }
+    if (!validator.isInRange(val)){
+        issues.push("IntLimit");
+    }
+    if (!validator.isMoreThanOne(val)){
+        issues.push("LessThan1");
     }
     return issues;
 }
 
 function validateTeamSize(val){
-    let issues = []
+    let issues = [];
     if (validator.isEmpty(val)){
-        issues.push("Empty")
+        issues.push("Empty");
     }
     if (!validator.isInteger(val)){
-        issues.push("NotInteger")
+        issues.push("NotInteger");
+    }
+    if (!validator.isInRange(val)){
+        issues.push("IntLimit");
+    }
+    if (!validator.isMoreThanOne(val)){
+        issues.push("LessThan1");
     }
     return issues;
 }
