@@ -16,7 +16,7 @@ const performPlayerValidation = (request, response, next) => {
 };
 
 const getAllPlayers = (request, response, next) => {
-    pool.query(`SELECT * FROM player`, (error, result) => {
+    pool.query(`SELECT * FROM player ORDER BY name ASC`, (error, result) => {
         if (error){
             throw error;
         }
@@ -90,8 +90,8 @@ const editPlayerPage = (request, response, next) => {
 
 const deletePlayer = (request, response, next) => {
     const id = request.params.id;
-    const playerName = request.query.playerName;
-
+    const playerName = request.query.name;
+    console.log(request.params.playerName)
     pool.query(`DELETE FROM player WHERE player_id = ?`, id, (error, result) => {
         if (error){
             throw error;

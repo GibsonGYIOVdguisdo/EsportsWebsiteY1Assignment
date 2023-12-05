@@ -17,7 +17,7 @@ const performGameValidation = (request, response, next) => {
 };
 
 const getAllGames = (request, response, next) => {
-    pool.query(`SELECT * FROM game`, (error, result) => {
+    pool.query(`SELECT * FROM game ORDER BY name ASC`, (error, result) => {
         if (error){
             throw error;
         }
@@ -93,8 +93,8 @@ const editGamePage = (request, response, next) => {
 
 const deleteGame = (request, response, next) => {
     const id = request.params.id;
-    const gameName = request.query.gameName;
-
+    const gameName = request.query.name;
+    console.log(gameName);
     pool.query(`DELETE FROM game WHERE game_id = ?`, id, (error, result) => {
         if (error){
             throw error;
