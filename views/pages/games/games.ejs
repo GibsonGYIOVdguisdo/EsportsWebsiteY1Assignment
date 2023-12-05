@@ -15,12 +15,25 @@
         </button>
     </div>
     <%}%>
+
     <div style="display: flex; justify-content: space-around;">
         <a href="/games/add"><button class="button1">Add game</button></a>
     </div>
     
     <div class="mainDiv">
-        <h1 style="margin-left: 10px;">Games</h1>
+        <div class="header">
+            <h1 style="margin-left: 10px;">Games</h1>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter
+                </button>
+                <ul class="dropdown-menu">
+                    <li><p style="text-align: center; border-bottom: solid 1px; font-size: 20px;">Sort by</p></li>
+                    <li><a class="dropdown-item active" href="#">Id</a></li>
+                    <li><a class="dropdown-item" href="#">Name</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="gridContainer" id="gridContainer">
             <% gamesArr.forEach((game)=> { %>
                 <%- include('../../partials/gamedisplay', {game: game}) %>
