@@ -27,12 +27,32 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Filter
                 </button>
-                <ul class="dropdown-menu">
-                    <li><p style="text-align: center; border-bottom: solid 1px; font-size: 20px;">Sort by</p></li>
-                    <li><a class="dropdown-item active" href="#">Id</a></li>
-                    <li><a class="dropdown-item" href="#">Name</a></li>
+                <ul class="dropdown-menu" onclick="event.stopPropagation()">
+                    <li>
+                        <hr>
+                        <h5 style="text-align: center;">Sort by</h5>
+                        <div style="display: flex; flex-direction: row;" id="sortSelection">
+                            <button class="dropDownItem" id="nameDropButton">Name</button>
+                            <button class="dropDownItem" id="idDropButton">Id</button>
+                        </div>
+                    </li>
+                    <li>
+                        <hr>
+                        <h5 style="text-align: center;" id="orderSelection">Order</h5>
+                        <div style="display: flex; flex-direction: row;">
+                            <button class="dropDownItem" id="ascDropButton">ASC</button>
+                            <button class="dropDownItem" id="descDropButton">DESC</button>
+                        </div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div style="display: flex; flex-direction: row;">
+                            <a style="flex:1; text-align: center; display: flex;" href="/games/"><button class="dropDownItem activeDrop" id="confirmDropButton">Confirm</button></a>
+                        </div>
+                    </li>
                 </ul>
             </div>
+            <script src="/public/dropDownSelect.js"></script>
         </div>
         <div class="gridContainer" id="gridContainer">
             <% gamesArr.forEach((game)=> { %>

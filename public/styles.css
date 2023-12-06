@@ -79,3 +79,21 @@
     display: flex;
     justify-content: space-between;
 }
+.dropDownItem{
+    background-color: rgb(238, 238, 238);
+    border: none;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    flex:1;
+}
+.dropDownItem:hover{
+    background-color: rgb(202, 202, 202);
+}
+
+.activeDrop{
+    background-color: #0F6EFD;
+    color: white;
+}
+.activeDrop:hover{
+    background-color: rgb(61, 139, 255);
+}
