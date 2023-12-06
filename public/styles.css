@@ -94,8 +94,20 @@ body{
     width: 0%;
     transition: 1s;
     overflow: hidden;
+    text-wrap: nowrap;
+}
+.card{
+    text-wrap: nowrap;
+    transition: 1s;
 }
 .transitionCard{
+    opacity: 1;
+    width: 90%;
+    margin-left: 10px;
+    transition: 0.4s;
+    overflow: hidden;
+}
+.transitionCard2{
     opacity: 1;
     width: 90%;
     margin-left: 10px;
