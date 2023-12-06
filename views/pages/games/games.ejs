@@ -77,28 +77,7 @@
     </div>
 
 
-    <script>
-        let cardWidth = 500;
-
-        let columnCount = Math.floor(document.documentElement.clientWidth / cardWidth);
-        let temp = ""
-        for(let i = 0; i < columnCount; i++){
-            temp += "auto "
-        }
-        let newStyle = "grid-template-columns: " + temp;
-        document.getElementById("gridContainer").style = newStyle;
-
-        document.body.onresize = () => {
-            let columnCount = Math.floor(document.documentElement.clientWidth / cardWidth);
-            let temp = ""
-            for(let i = 0; i < columnCount; i++){
-                temp += "auto "
-            }
-            let newStyle = "grid-template-columns: " + temp;
-            console.log(temp);
-            document.getElementById("gridContainer").style = newStyle;
-        }
-    </script>
+    <script src="/public/cardResizing.js"></script>
 
 </body>
 <%- include('../../partials/footer') %>
