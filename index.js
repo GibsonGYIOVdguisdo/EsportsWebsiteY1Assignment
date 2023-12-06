@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const router = require("./routes/router.js")
+
+const playerRouter = require("./routes/playerRoutes.js")
+const gameRouter = require("./routes/gameRoutes.js")
+const otherRouter = require("./routes/otherRoutes.js")
 
 const port = 3000;
 const app = express();
@@ -11,7 +14,10 @@ app.use(
         extended: true
     })
 );
-router(app);
+
+playerRouter(app);
+gameRouter(app);
+otherRouter(app);
 
 app.use("/public", express.static('public'))
 
