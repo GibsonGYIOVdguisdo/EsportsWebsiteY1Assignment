@@ -1,9 +1,9 @@
 const { response } = require("express");
+const otherController = require("../controllers/otherController.js")
+
 
 const router = (app) => {
-    app.get("/", (request, response) => {
-        response.render("../views/pages/index.ejs");
-    });
+    app.get("/", otherController.renderHome);
 }
 
 module.exports = router;

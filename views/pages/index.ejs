@@ -1,6 +1,25 @@
 <%- include('../partials/head') %>
 <%- include('../partials/navbar.ejs') %>
 <body>
-    <h1>Games site</h1>
+    <script>
+        let columnCount = 2;
+    </script>
+    <div class="mainDiv" style="margin-top: 50px;">
+        <p style="font-size: 40px; font-weight: 600; text-align: center; margin-top: 50px;">Games</p>
+        <div class="homePageRow">
+            <% results.games.forEach((game)=> { %>
+                <%- include('../partials/homeGameDisplay.ejs', {game: game}) %>
+            <% }) %>
+        </div>
+        <p style="font-size: 40px; font-weight: 600; text-align: center;  margin-top: 50px;">Players</p>
+        <div>
+            <div class="homePageRow">
+                <% results.players.forEach((player)=> { %>
+                    <%- include('../partials/homePlayerDisplay.ejs', {player: player}) %>
+                <% }) %>
+            </div>
+        </div>
+        <script src="/public/cardLoading.js"></script>
+    </div>
 </body>
 <%- include('../partials/footer') %>

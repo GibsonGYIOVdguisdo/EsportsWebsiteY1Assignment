@@ -1,7 +1,9 @@
 h1{
     color: rgb(174, 174, 255);
 }
-
+p{
+    color: rgb(174, 174, 255);
+}
 body{
     background-color: #03214a;
 }
@@ -83,10 +85,49 @@ body{
     grid-template-columns: auto, auto, auto;
     overflow: hidden;
 }
-.cardCustom, .button2, .button3, .button5, .dropDownMenu{
+.cardCustom, .button2, .button3, .button5, .dropDownMenu, .homePageRow{
     color: rgb(174, 174, 255);
     transition: 0.2s;
     background-color: #05377b;
+}
+
+.homePageRow{
+    border-radius: 20px;
+    height: 200px;
+    display: 80vw;
+    overflow: auto;
+    white-space: nowrap;
+}
+.homePageRow > *{
+    text-align: center;
+    width: 400px;
+    text-decoration: none;
+}
+
+
+::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 90%;
+    cursor: pointer;
+}
+}
+/* Dont know why this is need but if you remove it it doesnt work */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    opacity: 0;
+}
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 40px;
+    opacity: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(4, 42, 95); 
+    border-radius: 40px;
+    opacity: 0;
 }
 
 .hiddenCard{
@@ -98,7 +139,7 @@ body{
 }
 .card{
     text-wrap: nowrap;
-    transition: 1s;
+    transition: 0.2s;
 }
 .transitionCard{
     opacity: 1;
@@ -113,6 +154,18 @@ body{
     margin-left: 10px;
     transition: 0.4s;
     overflow: hidden;
+}
+
+.card2{
+    width: 400px;
+    display: inline-block;
+    height: 90%;
+    margin-top: 10px;
+    transition: 0.2;
+}
+.card2:hover{
+    opacity: 0.5;
+    transition: 0.2;
 }
 .cardCustom{
     border-radius: 20px;

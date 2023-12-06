@@ -80,11 +80,11 @@ sizeSelect.onclick = () => {
 confirmButton.onclick = () => {
     localStorage.setItem("order", currentFilterParams[0]);
     localStorage.setItem("sortBy", currentFilterParams[1]);
-    window.location.href = `?order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`
+    window.location.href = `${window.location.href}?order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`
 }
 
 const querySortCheck = new URLSearchParams(window.location.search);
-let newQuery = "?";
+let newQuery = `${window.location.href}?`;
 if (querySortCheck.get("order") !== currentFilterParams[0] || querySortCheck.get("sortBy") !== currentFilterParams[1]){
     newQuery += `order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`;
     if (querySortCheck.get("messageToShow")){

@@ -2,8 +2,14 @@
 <%- include('../../partials/navbar.ejs') %>
 <body>
     <div style="display: flex; justify-content: space-around;">
-        <a href="/players"><button class="button3">Back</button></a>
+        <a href="/players" id="backButton"><button class="button3">Back</button></a>
     </div>
+    
+    <script>
+        if (sessionStorage.getItem("lastPage") !== window.location.href){
+            document.getElementById("backButton").href = sessionStorage.getItem("lastPage")
+        }
+    </script>
     <div class="container">
         <div class="card cardCustom hiddenCard" style="margin-top: 20px; margin-bottom: 20px;">
             <div class="card-header">
