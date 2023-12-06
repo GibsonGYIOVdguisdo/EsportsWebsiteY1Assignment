@@ -1,7 +1,7 @@
-let cardWidth = 500;
-
+let cardWidth = 450;
+let columnCount = 1;
 function resizeCards(){
-    let columnCount = Math.floor(document.documentElement.clientWidth / cardWidth);
+    columnCount = Math.floor(document.documentElement.clientWidth / cardWidth);
     let temp = ""
     for(let i = 0; i < columnCount; i++){
         temp += "auto "

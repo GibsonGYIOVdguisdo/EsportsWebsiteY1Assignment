@@ -13,6 +13,7 @@ body{
     margin-left: 10px;
     margin-right: 10px;
     overflow-x: hidden;
+    text-wrap: nowrap;
 }
 .gameDisplayHolder{
     display: flex;
@@ -88,6 +89,19 @@ body{
     background-color: #05377b;
 }
 
+.hiddenCard{
+    opacity: 0;
+    width: 0%;
+    transition: 1s;
+    overflow: hidden;
+}
+.transitionCard{
+    opacity: 1;
+    width: 90%;
+    margin-left: 10px;
+    transition: 0.4s;
+    overflow: hidden;
+}
 .cardCustom{
     border-radius: 20px;
 }

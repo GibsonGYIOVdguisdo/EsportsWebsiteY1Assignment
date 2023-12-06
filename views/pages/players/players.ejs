@@ -60,7 +60,7 @@
             <% playersArr.forEach((player)=> { %>
                 <%- include('../../partials/playerdisplay', {player: player}) %>
             <% }) %>
-            <a href="/players/add" class="gameDisplay">
+            <a href="/players/add" class="gameDisplay hiddenCard">
                 <div class="card cardCustom" style="margin-top: 20px;">
                     <div class="card-header">
                         <h4 style="overflow: hidden; height: 30px; text-align: center;">
@@ -79,6 +79,7 @@
 
 
     <script src="/public/cardResizing.js"></script>
+    <script src="/public/cardLoading.js"></script>  
 
 </body>
 <%- include('../../partials/footer') %>
