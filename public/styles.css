@@ -139,7 +139,7 @@ body{
 }
 .card{
     text-wrap: nowrap;
-    transition: 0.2s;
+    transition: 0.5s;
 }
 .transitionCard{
     opacity: 1;
