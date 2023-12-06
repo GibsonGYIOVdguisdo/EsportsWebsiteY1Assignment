@@ -17,17 +17,17 @@
     <%}%>
 
     <div style="display: flex; justify-content: space-around;">
-        <a href="/games/add"><button class="button1">Add game</button></a>
+        <a href="/games/add"><button class="button3">Add game</button></a>
     </div>
     
     <div class="mainDiv">
         <div class="header">
             <h1 style="margin-left: 10px;">Games</h1>
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="button3 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Filter
                 </button>
-                <ul class="dropdown-menu" onclick="event.stopPropagation()">
+                <ul class="dropdown-menu dropDownMenu" onclick="event.stopPropagation()">
                     <li>
                         <hr>
                         <h5 style="text-align: center;">Sort by</h5>
@@ -65,13 +65,13 @@
                 <%- include('../../partials/gamedisplay', {game: game}) %>
             <% }) %>
             <a href="/games/add" class="gameDisplay">
-                <div class="card" style="margin-top: 20px;">
+                <div class="card cardCustom" style="margin-top: 20px;">
                     <div class="card-header">
                         <h4 style="overflow: hidden; height: 30px; text-align: center;">
                             Click to add game
                         </h2>
                     </div>
-                    <div class="card-body" style="background-color: rgb(247, 247, 247);">
+                    <div class="card-body">
                         <blockquote class="blockquote mb-0">
                         <p><br></p>
                         <p><br></p>

@@ -16,7 +16,7 @@
     </div>
     <%}%>
     <div style="display: flex; justify-content: space-around;">
-        <a href="/players/add"><button class="button1">Add player</button></a>
+        <a href="/players/add"><button class="button3">Add player</button></a>
     </div>
     
     <div class="mainDiv">
@@ -61,7 +61,7 @@
                 <%- include('../../partials/playerdisplay', {player: player}) %>
             <% }) %>
             <a href="/players/add" class="gameDisplay">
-                <div class="card" style="margin-top: 20px; background-color: rgb(247, 247, 247);">
+                <div class="card cardCustom" style="margin-top: 20px;">
                     <div class="card-header">
                         <h4 style="overflow: hidden; height: 30px; text-align: center;">
                             Click to add player

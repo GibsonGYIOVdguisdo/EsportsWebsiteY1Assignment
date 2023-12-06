@@ -1,11 +1,11 @@
 <%- include('../../partials/head') %>
 <%- include('../../partials/navbar') %>
 <div style="display: flex; justify-content: space-around;">
-    <a href="/players/<%=playerId%>"><button class="button1">Back</button></a>
+    <a href="/players/<%=playerId%>"><button class="button3">Back</button></a>
 </div>
 <script src="/public/playerFormValidation.js"></script>
 <div class="container px-5 my-5">
-    <div class="card" style="margin-top: 20px;">
+    <div class="card cardCustom" style="margin-top: 20px;">
         <div class="card-header">
             <h1>Edit a player</h1>
         </div>
@@ -15,7 +15,7 @@
                 <p id="nameStatus"><br></p>
                 <p>Player email: <input class="form-control" name="email" type="text" value="<%=playerEmail%>" placeholder="<%=playerEmail%>"></p>    
                 <p id="emailStatus"><br></p>
-                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm</button>
+                <button class="button4" id="submitButton" type="submit">Confirm</button>
             </form>
         </div>
     </div>

@@ -1,6 +1,13 @@
+h1{
+    color: rgb(174, 174, 255);
+}
+
+body{
+    background-color: #03214a;
+}
 
 .gameDisplay{
-    color: rgb(0, 0, 0);
+    color: white;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
@@ -9,6 +16,8 @@
 .gameDisplayHolder{
     display: flex;
     justify-content: space-around;
+    background-color: #042c62;
+    border-radius: 20px;
 }
 .gameDisplay:hover{
     transition: 0.05s;
@@ -25,7 +34,7 @@
     border-radius: 4px;
 }
 .banner1{
-    background-color: #4e95ff;
+    background-color: #05377b;
     display: flex;
     border-radius: 5px;
     margin-left: 10px;
@@ -38,16 +47,17 @@
     padding-bottom: 10px;
 }
 .banner1 > p{
-    color: white;
+    color:rgb(174, 174, 255);
+    background-color: #05377b;
     font-weight: 600;
     font-size: 20px;
     margin: 0;
 }
 .banner1 > button{
-    color:rgb(218, 0, 0);
+    color:rgb(174, 174, 255);
     width: 30px;
     height: 30px;
-    background-color: white;
+    background-color: #0d52b3;
     border-width: 0;
     font-weight: 600;
     border-radius: 5px;
@@ -64,13 +74,55 @@
 }
 .gridContainer{
     padding: 10px;
-    border-width: 5px;
-    border-style: hidden solid hidden solid;
     border-color: rgb(224, 224, 224);
     display: grid;
     grid-template-columns: auto, auto, auto;
     overflow: hidden;
 }
+.cardCustom, .button2, .button3, .button5, .dropDownMenu{
+    color: rgb(174, 174, 255);
+    background-color: #05377b;
+}
+
+.cardCustom{
+    border-radius: 20px;
+}
+
+.button2{
+    border-radius: 10px;
+    margin-top: 4px;
+}
+
+.button3{
+    padding: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.button4{
+    background-color: rgb(4, 42, 95);
+    color: rgb(174, 174, 255);
+    padding: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.button5{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100px;
+}
+.button3:hover, .button4:hover, .button5:hover{
+    transition: 0.25s;
+    background-color: rgb(44, 95, 173);
+    color:#05377b;
+
+}
+
+.activeButton2, .activeButton3{
+    color: rgb(174, 174, 255);
+    background-color: #0c52b3;
+    border-radius: 10px;
+}
+
 .mainDiv{
     margin-left: 30px;
     margin-right: 30px;
@@ -80,27 +132,23 @@
     justify-content: space-between;
 }
 .dropDownItem{
-    background-color: rgb(238, 238, 238);
     border: none;
     padding-top: 6px;
     padding-bottom: 6px;
     flex:1;
-    color: rgb(0, 0, 0);
-}
-.dropDownItem:hover{
-    background-color: rgb(202, 202, 202);
+    background-color: rgb(4, 42, 95);
+    color: rgb(174, 174, 255);  
 }
 
 .activeDrop{
-    background-color: #0F6EFD;
-    color: white;
+    background-color: rgb(4, 66, 160);
+    color: rgb(255, 255, 255);  
 }
 .activeDrop:hover{
     background-color: rgb(61, 139, 255);
 }
 
 button{
-    background-color: #0F6EFD;
     color: white;
     border: none;
     border-radius: 7px;

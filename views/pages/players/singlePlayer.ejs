@@ -2,25 +2,26 @@
 <%- include('../../partials/navbar.ejs') %>
 <body>
     <div style="display: flex; justify-content: space-around;">
-        <a href="/players"><button class="button1">Back</button></a>
+        <a href="/players"><button class="button3">Back</button></a>
     </div>
     <div class="container">
-        <div class="card" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="card cardCustom" style="margin-top: 20px; margin-bottom: 20px;">
             <div class="card-header">
                 <h4 style="width: 400px; overflow: hidden; height: 30px;">
                     <%=player.name%>
                 </h4>
             </div>
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
-            <p><strong>Email</strong>: <%=player.email%></p>
-            </blockquote>   
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                <p><strong>Email</strong>: <%=player.email%></p>
+                </blockquote>   
+            </div>
         </div>
-    </div>
-    <div style="display: flex; justify-content: space-around;">
-        <div>
-            <a href="/players/edit/<%=player.player_id%>?playerEmail=<%=player.email%>&playerName=<%=player.name%>"><button class="button1">Edit</button></a>
-            <a href="/players/delete/<%=player.player_id%>?playerName=<%=player.name%>"><button class="button1">Delete</button></a>
+        <div style="display: flex; justify-content: space-around;">
+            <div>
+                <a href="/players/edit/<%=player.player_id%>?playerEmail=<%=player.email%>&playerName=<%=player.name%>"><button class="button5">Edit</button></a>
+                <a href="/players/delete/<%=player.player_id%>?playerName=<%=player.name%>"><button class="button5">Delete</button></a>
+            </div>
         </div>
     </div>
 </body>

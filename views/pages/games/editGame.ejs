@@ -1,11 +1,11 @@
 <%- include('../../partials/head') %>
 <%- include('../../partials/navbar') %>
 <div style="display: flex; justify-content: space-around;">
-    <a href="/games/<%=gameId%>"><button class="button1">Back</button></a>
+    <a href="/games/<%=gameId%>"><button class="button3">Back</button></a>
 </div>
 <script src="/public/gameFormValidation.js"></script>
 <div class="container px-5 my-5">
-    <div class="card" style="margin-top: 20px;">
+    <div class="card cardCustom" style="margin-top: 20px;">
         <div class="card-header">
             <h1>Edit a game</h1>
         </div>
@@ -18,7 +18,7 @@
                 <p id="durationStatus"><br></p>
                 <p>Team size:<input class="form-control" name="team_size" type="text" value="<%=gameSize%>" placeholder="<%=gameName%>"></p>
                 <p id="sizeStatus"><br></p>
-                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm</button>
+                <button class="button4" id="submitButton" type="submit">Confirm</button>
             </form>
         </div>
     </div>  
