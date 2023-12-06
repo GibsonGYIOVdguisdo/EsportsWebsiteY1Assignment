@@ -12,11 +12,11 @@
         <div class="card-body">
             <form onsubmit="return validateGameForm('addGame')" action="/games/add" method="post" name="addGame">
                 <p style="margin-bottom: 3px; font-weight: 600;">Game name: <input class="form-control" name="name" type="text" /></p>
-                <p id="nameStatus"><br></p>
+                <p id="nameStatus" style="color: red;"><br></p>
                 <p style="margin-bottom: 3px;">Match duration: <input class="form-control" name="duration" type="text" /></p>    
-                <p id="durationStatus"><br></p>
+                <p id="durationStatus" style="color: red;"><br></p>
                 <p style="margin-bottom: 3px;">Team size:<input class="form-control" name="team_size" type="text" /></p>
-                <p id="sizeStatus"><br></p>
+                <p id="sizeStatus" style="color: red;"><br></p>
                 <button class="button4 btn-lg" id="submitButton" type="submit">Add game</button>
             </form>
         </div>  

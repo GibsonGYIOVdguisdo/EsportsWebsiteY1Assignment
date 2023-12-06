@@ -12,9 +12,9 @@
         <div class="card-body"> 
             <form onsubmit="return validatePlayerForm('editPlayer')" name="editPlayer" action="/players/edit/<%=playerId%>" method="post">
                 <p>Player name: <input class="form-control" name="name" type="text" value="<%=playerName%>" placeholder="<%=playerName%>"/></p>
-                <p id="nameStatus"><br></p>
+                <p id="nameStatus" style="color: red;"><br></p>
                 <p>Player email: <input class="form-control" name="email" type="text" value="<%=playerEmail%>" placeholder="<%=playerEmail%>"></p>    
-                <p id="emailStatus"><br></p>
+                <p id="emailStatus" style="color: red;"><br></p>
                 <button class="button4" id="submitButton" type="submit">Confirm</button>
             </form>
         </div>
