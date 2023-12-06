@@ -7,6 +7,7 @@ body{
 }
 
 .gameDisplay{
+    transition: 0.2s;
     color: white;
     text-decoration: none;
     margin-left: 10px;
@@ -20,7 +21,7 @@ body{
     border-radius: 20px;
 }
 .gameDisplay:hover{
-    transition: 0.05s;
+    transition: 0.2s;
     opacity: 0.5;
 }
 .button1{
@@ -32,6 +33,7 @@ body{
     padding-top: 3px;
     padding-bottom: 3px;
     border-radius: 4px;
+    transition: 0.2s;
 }
 .banner1{
     background-color: #05377b;
@@ -63,13 +65,14 @@ body{
     border-radius: 5px;
 }
 .banner1 > button:hover{
-    transition: 0.07s;
+    transition: 0.2s;
     background-color: rgb(219, 219, 219);
 }
 .backButton{
     background-color: #0d6efd;
     color: white;
     border: none;
+    transition: 0.2s;
     width: 50px;
 }
 .gridContainer{
@@ -81,6 +84,7 @@ body{
 }
 .cardCustom, .button2, .button3, .button5, .dropDownMenu{
     color: rgb(174, 174, 255);
+    transition: 0.2s;
     background-color: #05377b;
 }
 
@@ -89,11 +93,13 @@ body{
 }
 
 .button2{
+    transition: 0.2s;
     border-radius: 10px;
     margin-top: 4px;
 }
 
 .button3{
+    transition: 0.2s;
     padding: 10px;
     padding-left: 14px;
     padding-right: 14px;
@@ -102,10 +108,12 @@ body{
     background-color: rgb(4, 42, 95);
     color: rgb(174, 174, 255);
     padding: 10px;
+    transition: 0.2s;
     padding-left: 14px;
     padding-right: 14px;
 }
 .button5{
+    transition: 0.2s;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100px;
@@ -136,6 +144,7 @@ body{
     padding-top: 6px;
     padding-bottom: 6px;
     flex:1;
+    transition: 0.2s;
     background-color: rgb(4, 42, 95);
     color: rgb(174, 174, 255);  
 }
@@ -143,8 +152,10 @@ body{
 .activeDrop{
     background-color: rgb(4, 66, 160);
     color: rgb(255, 255, 255);  
+    transition: 0.25s;
 }
 .activeDrop:hover{
+    transition: 0.2s;
     background-color: rgb(61, 139, 255);
 }
 
@@ -154,5 +165,6 @@ button{
     border-radius: 7px;
 }
 button:hover{
+    transition: 0.2s;
     background-color: rgb(61, 139, 255);
 }
