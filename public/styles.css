@@ -51,6 +51,11 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.hiddenBanner1{
+    width: 0;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
 .banner1 > p{
     color:rgb(174, 174, 255);
     background-color: #05377b;

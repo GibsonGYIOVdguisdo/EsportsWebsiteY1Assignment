@@ -68,7 +68,7 @@ const addPlayer = (request, response, next) => {
         if (error){
             throw error;
         }
-        response.redirect("/players?messageToShow=Added " + request.body.name)
+        response.redirect("/players/?messageToShow=Added " + request.body.name)
     });
 };
 
@@ -84,7 +84,7 @@ const editPlayer = (request, response, next) => {
         if (error) {
             throw error;
         }
-        response.redirect("/players?messageToShow=Edited " + request.body.name + "#player"+id)
+        response.redirect("/players/?messageToShow=Edited " + request.body.name + "#player"+id)
     }); 
 };
 

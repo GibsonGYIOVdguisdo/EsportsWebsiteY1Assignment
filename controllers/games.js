@@ -71,7 +71,7 @@ const addGame = (request, response, next) => {
         if (error){
             throw error;
         }
-        response.redirect("/games?messageToShow=Added " + request.body.name)
+        response.redirect("/games/?messageToShow=Added " + request.body.name)
     });
 };
 
@@ -87,7 +87,7 @@ const editGame = (request, response, next) => {
         if (error) {
             throw error;
         }
-        response.redirect("/games?messageToShow=Edited " + request.body.name + "#game"+id)
+        response.redirect("/games/?messageToShow=Edited " + request.body.name + "#game"+id)
     }); 
 };
 

@@ -84,7 +84,7 @@ confirmButton.onclick = () => {
 }
 
 const querySortCheck = new URLSearchParams(window.location.search);
-let newQuery = `${window.location.href}?`;
+let newQuery = `/games/?`;
 if (querySortCheck.get("order") !== currentFilterParams[0] || querySortCheck.get("sortBy") !== currentFilterParams[1]){
     newQuery += `order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`;
     if (querySortCheck.get("messageToShow")){
