@@ -53,7 +53,11 @@ confirmButton.onclick = () => {
 }
 
 const querySortCheck = new URLSearchParams(window.location.search);
-
+let newQuery = "?";
 if (querySortCheck.get("order") !== currentFilterParams[0] || querySortCheck.get("sortBy") !== currentFilterParams[1]){
-    window.location.href = `?order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`
+    newQuery += `order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`;
+    if (querySortCheck.get("messageToShow")){
+        newQuery += `&messageToShow=${querySortCheck.get("messageToShow")}`;
+    }
+    window.location.href = newQuery;
 }
