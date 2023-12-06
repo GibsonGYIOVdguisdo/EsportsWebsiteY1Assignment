@@ -5,7 +5,7 @@
         <a href="/games" id="backButton"><button class="button3">Back</button></a>
         <script>
             if (sessionStorage.getItem("lastPage") !== window.location.href){
-                document.getElementById("backButton").href = sessionStorage.getItem("lastPage")
+                document.getElementById("backButton").href = sessionStorage.getItem("cameFrom");
             }
         </script>
     </div>

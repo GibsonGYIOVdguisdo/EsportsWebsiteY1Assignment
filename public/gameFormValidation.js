@@ -163,6 +163,5 @@ if (urlParams.size) {
         "Size": sizeIssues
     }
 
-    console.log(errorsOnLoad);
     showValidationErrors(errorsOnLoad);
 }
