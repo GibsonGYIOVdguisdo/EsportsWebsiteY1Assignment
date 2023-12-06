@@ -80,7 +80,7 @@ sizeSelect.onclick = () => {
 confirmButton.onclick = () => {
     localStorage.setItem("order", currentFilterParams[0]);
     localStorage.setItem("sortBy", currentFilterParams[1]);
-    window.location.href = `${window.location.href}?order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`
+    window.location.href = `/games/?order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`
 }
 
 const querySortCheck = new URLSearchParams(window.location.search);
