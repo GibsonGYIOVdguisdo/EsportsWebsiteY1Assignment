@@ -20,7 +20,39 @@
     </div>
     
     <div class="mainDiv">
-        <h1 style="margin-left: 10px;">Players</h1>
+        <div class="header">
+            <h1 style="margin-left: 10px;">Players</h1>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter
+                </button>
+                <ul class="dropdown-menu" onclick="event.stopPropagation()">
+                    <li>
+                        <hr>
+                        <h5 style="text-align: center;">Sort by</h5>
+                        <div style="display: flex; flex-direction: row;" id="sortSelection">
+                            <button class="dropDownItem" id="nameDropButton">Name</button>
+                            <button class="dropDownItem" id="idDropButton">Id</button>
+                        </div>
+                    </li>
+                    <li>
+                        <hr>
+                        <h5 style="text-align: center;" id="orderSelection">Order</h5>
+                        <div style="display: flex; flex-direction: row;">
+                            <button class="dropDownItem" id="ascDropButton">ASC</button>
+                            <button class="dropDownItem" id="descDropButton">DESC</button>
+                        </div>
+                    </li>
+                    <hr>
+                    <li>
+                        <div style="display: flex; flex-direction: row;">
+                            <button class="dropDownItem activeDrop" id="confirmDropButton">Confirm</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <script src="/public/dropDownSelect.js"></script>
+        </div>
         <div class="gridContainer" id="gridContainer">
             <% playersArr.forEach((player)=> { %>
                 <%- include('../../partials/playerdisplay', {player: player}) %>

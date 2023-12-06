@@ -12,41 +12,48 @@ let confirmButton = document.getElementById("confirmDropButton");
 
 if (currentOrder == "asc"){
     ascSelect.classList.add("activeDrop");
-    currentFilterParams[0] = "asc"
+    currentFilterParams[0] = "asc";
 } else{
     descSelect.classList.add("activeDrop");
-    currentFilterParams[0] = "desc"
+    currentFilterParams[0] = "desc";
 }
 if (currentSort == "id"){
     idSelect.classList.add("activeDrop");
-    currentFilterParams[1] = "id"
+    currentFilterParams[1] = "id";
 } else{
     nameSelect.classList.add("activeDrop");
-    currentFilterParams[1] = "name"
+    currentFilterParams[1] = "name";
 }
 
 ascSelect.onclick = () => {
     ascSelect.classList.add("activeDrop");
     descSelect.classList.remove("activeDrop");
-    currentFilterParams[0] = "asc"
+    currentFilterParams[0] = "asc";
 }
 descSelect.onclick = () => {
     descSelect.classList.add("activeDrop");
     ascSelect.classList.remove("activeDrop");
-    currentFilterParams[0] = "desc"
+    currentFilterParams[0] = "desc";
 }
 nameSelect.onclick = () => {
     nameSelect.classList.add("activeDrop");
     idSelect.classList.remove("activeDrop");
-    currentFilterParams[1] = "name"
+    currentFilterParams[1] = "name";
 }
 idSelect.onclick = () => {
     idSelect.classList.add("activeDrop");
     nameSelect.classList.remove("activeDrop");
-    currentFilterParams[1] = "id"
+    currentFilterParams[1] = "id";
 }
 
 confirmButton.onclick = () => {
-    localStorage.setItem("order", currentFilterParams[0])
-    localStorage.setItem("sortBy", currentFilterParams[1])
+    localStorage.setItem("order", currentFilterParams[0]);
+    localStorage.setItem("sortBy", currentFilterParams[1]);
+    window.location.href = `?order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`
+}
+
+const querySortCheck = new URLSearchParams(window.location.search);
+
+if (querySortCheck.get("order") !== currentFilterParams[0] || querySortCheck.get("sortBy") !== currentFilterParams[1]){
+    window.location.href = `?order=${currentFilterParams[0]}&sortBy=${currentFilterParams[1]}`
 }

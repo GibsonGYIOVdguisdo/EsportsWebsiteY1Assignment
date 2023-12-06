@@ -17,10 +17,20 @@ const performGameValidation = (request, response, next) => {
 };
 
 const getAllGames = (request, response, next) => {
-    pool.query(`SELECT * FROM game ORDER BY name ASC`, (error, result) => {
+    let order = request.query.order || "asc";
+    let sortBy = request.query.sortBy || "id";
+    if (order !== "desc"){
+        order = "asc";
+    }
+    if (sortBy !== "name"){
+        sortBy = "game_id";
+    }
+
+    pool.query(`SELECT * FROM game ORDER BY ${sortBy} ${order}`, (error, result) => {
         if (error){
             throw error;
         }
+        console.log(request.body)
         // Allows you to check the result - on the webpage:
         //response.send(result);
         // Or, by looking in the server console:

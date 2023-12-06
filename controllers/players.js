@@ -16,7 +16,16 @@ const performPlayerValidation = (request, response, next) => {
 };
 
 const getAllPlayers = (request, response, next) => {
-    pool.query(`SELECT * FROM player ORDER BY name ASC`, (error, result) => {
+    let order = request.query.order || "asc";
+    let sortBy = request.query.sortBy || "id";
+    if (order !== "desc"){
+        order = "asc";
+    }
+    if (sortBy !== "name"){
+        sortBy = "player_id";
+    }
+
+    pool.query(`SELECT * FROM player ORDER BY ${sortBy} ${order}`, (error, result) => {
         if (error){
             throw error;
         }
