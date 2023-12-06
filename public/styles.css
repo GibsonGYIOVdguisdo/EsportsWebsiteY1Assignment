@@ -85,6 +85,7 @@
     padding-top: 6px;
     padding-bottom: 6px;
     flex:1;
+    color: rgb(0, 0, 0);
 }
 .dropDownItem:hover{
     background-color: rgb(202, 202, 202);
@@ -95,5 +96,15 @@
     color: white;
 }
 .activeDrop:hover{
+    background-color: rgb(61, 139, 255);
+}
+
+button{
+    background-color: #0F6EFD;
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+button:hover{
     background-color: rgb(61, 139, 255);
 }

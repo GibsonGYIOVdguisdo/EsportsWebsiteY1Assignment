@@ -5,15 +5,22 @@
 </div>
 <script src="/public/gameFormValidation.js"></script>
 <div class="container px-5 my-5">
-    <h1>Edit a game</h1>
-    <form onsubmit="return validateGameForm('editGame')" name="editGame" action="/games/edit/<%=gameId%>" method="post">
-        <p>Game name: <input class="form-control" name="name" type="text" value="<%=gameName%>" placeholder="<%=gameName%>"/></p>
-        <p id="nameStatus"><br></p>
-        <p>Match duration: <input class="form-control" name="duration" type="text" value="<%=gameDuration%>" placeholder="<%=gameName%>"></p>    
-        <p id="durationStatus"><br></p>
-        <p>Team size:<input class="form-control" name="team_size" type="text" value="<%=gameSize%>" placeholder="<%=gameName%>"></p>
-        <p id="sizeStatus"><br></p>
-        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm</button>
-    </form>
+    <div class="card" style="margin-top: 20px;">
+        <div class="card-header">
+            <h1>Edit a game</h1>
+        </div>
+        
+        <div class="card-body">
+            <form onsubmit="return validateGameForm('editGame')" name="editGame" action="/games/edit/<%=gameId%>" method="post">
+                <p>Game name: <input class="form-control" name="name" type="text" value="<%=gameName%>" placeholder="<%=gameName%>"/></p>
+                <p id="nameStatus"><br></p>
+                <p>Match duration: <input class="form-control" name="duration" type="text" value="<%=gameDuration%>" placeholder="<%=gameName%>"></p>    
+                <p id="durationStatus"><br></p>
+                <p>Team size:<input class="form-control" name="team_size" type="text" value="<%=gameSize%>" placeholder="<%=gameName%>"></p>
+                <p id="sizeStatus"><br></p>
+                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm</button>
+            </form>
+        </div>
+    </div>  
 </div>
 <%- include('../../partials/footer') %>

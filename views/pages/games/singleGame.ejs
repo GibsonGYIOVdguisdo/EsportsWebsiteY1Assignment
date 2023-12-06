@@ -4,11 +4,20 @@
     <div style="display: flex; justify-content: space-around;">
         <a href="/games"><button class="button1">Back</button></a>
     </div>
-    <div class="container">
-        <h1 style="text-align: center;"><%=game.name%></h1>
-        <p><br></p>
-        <h3 style="text-align: center;">Team size: <%=game.team_size%></p>
-        <h3 style="text-align: center;">Duration: <%=game.duration%></p>
+    <div class="container" style="margin-bottom: 20px;">
+        <div class="card" style="margin-top: 20px;">
+            <div class="card-header">
+                <h4 style="width: 400px; overflow: hidden; height: 30px;">
+                    <%= game.name %>
+                </h4>
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                <p><strong>Team size:</strong> <%= game.team_size %></p>
+                <p><strong>Match duration:</strong> <%= game.duration %></p>
+                </blockquote>
+            </div>
+        </div>
     </div>
     <div style="display: flex; justify-content: space-around;">
         <div>

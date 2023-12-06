@@ -5,13 +5,19 @@
 </div>
 <script src="/public/playerFormValidation.js"></script>
 <div class="container px-5 my-5">
-    <h1>Edit a player</h1>
-    <form onsubmit="return validatePlayerForm('editPlayer')" name="editPlayer" action="/players/edit/<%=playerId%>" method="post">
-        <p>Player name: <input class="form-control" name="name" type="text" value="<%=playerName%>" placeholder="<%=playerName%>"/></p>
-        <p id="nameStatus"><br></p>
-        <p>Player email: <input class="form-control" name="email" type="text" value="<%=playerEmail%>" placeholder="<%=playerEmail%>"></p>    
-        <p id="emailStatus"><br></p>
-        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm</button>
-    </form>
+    <div class="card" style="margin-top: 20px;">
+        <div class="card-header">
+            <h1>Edit a player</h1>
+        </div>
+        <div class="card-body"> 
+            <form onsubmit="return validatePlayerForm('editPlayer')" name="editPlayer" action="/players/edit/<%=playerId%>" method="post">
+                <p>Player name: <input class="form-control" name="name" type="text" value="<%=playerName%>" placeholder="<%=playerName%>"/></p>
+                <p id="nameStatus"><br></p>
+                <p>Player email: <input class="form-control" name="email" type="text" value="<%=playerEmail%>" placeholder="<%=playerEmail%>"></p>    
+                <p id="emailStatus"><br></p>
+                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Confirm</button>
+            </form>
+        </div>
+    </div>
 </div>
 <%- include('../../partials/footer') %>
