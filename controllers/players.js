@@ -21,7 +21,7 @@ const getAllPlayers = (request, response, next) => {
     if (order !== "desc"){
         order = "asc";
     }
-    if (sortBy !== "name"){
+    if (sortBy !== "name" && sortBy !== "email"){
         sortBy = "player_id";
     }
 

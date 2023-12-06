@@ -22,9 +22,9 @@ const getAllGames = (request, response, next) => {
     if (order !== "desc"){
         order = "asc";
     }
-    if (sortBy !== "name"){
+    if (sortBy !== "name" && sortBy !== "duration" && sortBy !== "team_size"){
         sortBy = "game_id";
-    }
+    } 
 
     pool.query(`SELECT * FROM game ORDER BY ${sortBy} ${order}`, (error, result) => {
         if (error){

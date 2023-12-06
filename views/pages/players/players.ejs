@@ -30,9 +30,12 @@
                     <li>
                         <hr>
                         <h5 style="text-align: center;">Sort by</h5>
-                        <div style="display: flex; flex-direction: row;" id="sortSelection">
-                            <button class="dropDownItem" id="nameDropButton">Name</button>
-                            <button class="dropDownItem" id="idDropButton">Id</button>
+                        <div style="display: flex; flex-direction: column;" id="sortSelection">
+                            <div style="display: flex; flex-direction: row; flex: 1;">
+                                <button class="dropDownItem" id="nameDropButton">Name</button>
+                                <button class="dropDownItem" id="idDropButton">Id</button>
+                            </div>
+                            <button class="dropDownItem" id="emailDropButton">Email</button>
                         </div>
                     </li>
                     <li>
@@ -51,7 +54,7 @@
                     </li>
                 </ul>
             </div>
-            <script src="/public/dropDownSelect.js"></script>
+            <script src="/public/dropDownSelectPlayers.js"></script>
         </div>
         <div class="gridContainer" id="gridContainer">
             <% playersArr.forEach((player)=> { %>
