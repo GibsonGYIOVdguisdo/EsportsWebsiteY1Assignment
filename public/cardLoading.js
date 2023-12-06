@@ -17,6 +17,5 @@ function callStackLoop(children, index){
         }
     }, timeout)
 }
-let gridContainer = document.getElementById("gridContainer");
 let children = document.querySelectorAll(".hiddenCard");
 callStackLoop(children, 0);
