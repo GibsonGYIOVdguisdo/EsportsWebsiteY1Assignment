@@ -5,7 +5,16 @@
 <div style="display: flex; justify-content: space-around;">
     <a href="/<%=category%>/<%=id%>"><button class="button3">Back</button></a>
 </div>
-
+<script>
+    let changedData = sessionStorage.getItem("lastOpened");
+    function saveChange(){
+        let currentId = parseInt(localStorage.getItem("changeId")) + 1 || 0;
+        console.log(currentId);
+        localStorage.setItem("changeId",currentId)
+        sessionStorage.setItem(`change${currentId}Data`,changedData)
+        sessionStorage.setItem(`change${currentId}Action`,"delete")
+    }
+</script>
 <div class="container" style="margin-top: 50px;">
     <div class="card cardCustom hiddenCard">
         <div class="card-header">
@@ -15,7 +24,7 @@
         <div class="card-body">
             <div style="display: flex; justify-content: space-around;">
                 <form action="/<%=category%>/delete/<%=id%>?name=<%=name%>" method="post">
-                    <button class="button4" id="submitButton" type="submit">Confirm delete</button>
+                    <button class="button4" id="submitButton" type="submit" onclick="saveChange()">Confirm delete</button>
                 </form>
             </div>
         </div>

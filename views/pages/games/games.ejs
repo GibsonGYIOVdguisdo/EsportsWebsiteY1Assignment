@@ -3,6 +3,7 @@
 <body>
     <%if (typeof query.messageToShow != 'undefined' ){%>
     <script>
+        let lastChangeId = localStorage.getItem("changeId");
         function removeBanner(){
             let banner = document.getElementById("changeBanner");
             banner.classList.add("hiddenBanner1");
@@ -14,12 +15,35 @@
     </script>
     <div style="display: flex; justify-content: space-around;">
         <div id="changeBanner" class="banner1">
+
             <p><%=query.messageToShow%></p>
-            <button onclick="removeBanner()">
-                X
-            </button>
+            <div style="display: flex; flex-direction: row;">
+                <form action="/other/undo" style="display: inline-block" method="post" name="undoForm">
+                    <button class="button4" style="margin-right:10px;">
+                        Undo
+                    </button>
+                    <input type="hidden" name="category">
+                    <input type="hidden" name="id">
+                    <input type="hidden" name="name">
+                    <input type="hidden" name="duration">
+                    <input type="hidden" name="team_size">
+                </form>
+                <button class="button4" onclick="removeBanner()">
+                    Hide
+                </button>
+            </div>
         </div>
     </div>
+    <script>
+        let form = document.forms["undoForm"];
+        let undoData = sessionStorage.getItem(`change${lastChangeId}Data`).split(",");
+        console.log(undoData);
+        form["category"].value = undoData[0];
+        form["id"].value = undoData[1];
+        form["name"].value = undoData[2];
+        form["duration"].value = undoData[3];
+        form["team_size"].value = undoData[4];
+    </script>
     <%}%>
 
     <div style="display: flex; justify-content: space-around;">

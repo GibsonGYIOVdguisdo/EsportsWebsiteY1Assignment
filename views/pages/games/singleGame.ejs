@@ -4,6 +4,7 @@
     <div style="display: flex; justify-content: space-around;">
         <a href="/games" id="backButton"><button class="button3">Back</button></a>
         <script>
+            sessionStorage.setItem("lastOpened","game,<%=game.game_id%>,<%=game.name%>,<%=game.duration%>,<%=game.team_size%>");
             if (sessionStorage.getItem("lastPage") !== window.location.href){
                 document.getElementById("backButton").href = sessionStorage.getItem("cameFrom");
             }

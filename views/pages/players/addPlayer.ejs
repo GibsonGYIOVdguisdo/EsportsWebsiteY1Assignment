@@ -9,13 +9,23 @@
         <div class="card-header">
             <h1>Add a player</h1>
         </div>  
+        <script>
+            function saveChange(){
+                let form = document.forms["addPlayer"].name;
+                let name = form["name"];
+                let email = form["email"];
+                let email = form["email"];
+                sessionStorage.setItem("lastChange","add");
+                sessionStorage.setItem("lastOpened","player, ");
+            }
+        </script>
         <div class="card-body">
             <form onsubmit="return validatePlayerForm('addPlayer')" action="/players/add" method="post" name="addPlayer" >
                 <p style="margin-bottom: 3px;">Player name: <input class="form-control" name="name" type="text" /></p>
                 <p id="nameStatus" style="color: red;"><br></p>
                 <p style="margin-bottom: 3px;">Player email: <input class="form-control" name="email" type="text" /></p>    
                 <p id="emailStatus" style="color: red;"><br></p>
-                <button class="button4" id="submitButton" type="submit">Add player</button>
+                <button class="button4" id="submitButton" onclick="saveChange()" type="submit">Add player</button>
             </form>
         </div>  
     </div>

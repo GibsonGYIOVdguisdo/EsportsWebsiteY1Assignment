@@ -27,7 +27,18 @@ const renderHome = (request, response, next) => {
     })
 };
 
+const undoChange = (request, response, next) => {
+    if (!parseInt(request.params["id"])){
+        console.log("asd")
+        if (request.params["category"] === "game"){
+            pool.query(`DELETE FROM game WHERE game_id = ?`,request.params["id"], (error2, result2) => 
+            {
+            })
+        }
+    }
+}
 
 module.exports = {
-    renderHome
+    renderHome,
+    undoChange
 }

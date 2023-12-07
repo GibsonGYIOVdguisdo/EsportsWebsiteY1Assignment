@@ -6,6 +6,7 @@
     </div>
     
     <script>
+        sessionStorage.setItem("lastOpened","player,<%=player.player_id%>,<%=player.name%>,<%=player.email%>");
         if (sessionStorage.getItem("lastPage") !== window.location.href){
             document.getElementById("backButton").href = sessionStorage.getItem("cameFrom");
         }

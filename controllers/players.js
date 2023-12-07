@@ -114,6 +114,7 @@ const deletePlayerPage = (request, response, next) => {
     response.render("../views/pages/confirmDelete.ejs", {
         category: "players",
         id: request.params["id"],
+        data: request.params,
         name: request.query["playerName"]
     })
 }
