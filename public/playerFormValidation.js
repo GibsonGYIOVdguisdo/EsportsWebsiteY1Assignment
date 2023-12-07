@@ -58,7 +58,6 @@ function validatePlayerForm(formName){
 }
 
 function showValidationErrors(errors){
-    console.log(errors)
     let errorMessages = {
         "Empty": " is required",
         "NotEmail": " must contain an @ symbol"

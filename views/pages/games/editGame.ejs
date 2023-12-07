@@ -14,9 +14,9 @@
             <form onsubmit="return validateGameForm('editGame')" name="editGame" action="/games/edit/<%=gameId%>" method="post">
                 <p>Game name: <input class="form-control" name="name" type="text" value="<%=gameName%>" placeholder="<%=gameName%>"/></p>
                 <p id="nameStatus" style="color: red;"><br></p>
-                <p>Match duration: <input class="form-control" name="duration" type="text" value="<%=gameDuration%>" placeholder="<%=gameName%>"></p>    
+                <p>Match duration: <input class="form-control" name="duration" type="text" value="<%=gameDuration%>" placeholder="<%=gameDuration%>"></p>    
                 <p id="durationStatus" style="color: red;"><br></p>
-                <p>Team size:<input class="form-control" name="team_size" type="text" value="<%=gameSize%>" placeholder="<%=gameName%>"></p>
+                <p>Team size:<input class="form-control" name="team_size" type="text" value="<%=gameSize%>" placeholder="<%=gameSize%>"></p>
                 <p id="sizeStatus" style="color: red;"><br></p>
                 <button class="button4" id="submitButton" type="submit">Confirm</button>
             </form>
