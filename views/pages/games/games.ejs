@@ -4,15 +4,21 @@
     <%if (typeof query.messageToShow != 'undefined' ){%>
     <script>
         function removeBanner(){
-            document.getElementById("changeBanner").remove()
+            let banner = document.getElementById("changeBanner");
+            banner.classList.add("hiddenBanner1");
+            setTimeout(()=>{
+                banner.remove()
+            }, 500)
+            console.log("a")
         }
     </script>
-
-    <div id="changeBanner" class="banner1">
-        <p><%=query.messageToShow%></p>
-        <button onclick="removeBanner()">
-            X
-        </button>
+    <div style="display: flex; justify-content: space-around;">
+        <div id="changeBanner" class="banner1">
+            <p><%=query.messageToShow%></p>
+            <button onclick="removeBanner()">
+                X
+            </button>
+        </div>
     </div>
     <%}%>
 
