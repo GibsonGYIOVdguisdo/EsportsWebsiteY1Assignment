@@ -1,9 +1,9 @@
 <a href="/players/<%=player.player_id%>" class="card card2 hiddenCard cardCustom" onclick="sessionStorage.setItem('cameFrom', window.location.href);" id="player<%=player.game_id%>">
-    <h4 style="overflow-x: hidden; width: 400px;" class="cardHeader">
+    <h4 style="overflow: hidden; width: 400px;" class="cardHeader">
         <%= player.name%>
     </h4>
     <hr>
-    <h4 style="overflow-x: hidden; width: 400px; text-align: left; margin-left: 20px; font-size: 20px;" class="cardHeader">
+    <h4 style="overflow: hidden; width: 400px; text-align: left; margin-left: 20px; font-size: 20px;" class="cardHeader">
         Email: <%= player.email %>
     </h4>
 </a>

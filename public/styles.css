@@ -115,30 +115,30 @@ body{
     text-decoration: none;
 }
 
+body::-webkit-scrollbar {
+  width: 1em;
+}
 
-::-webkit-scrollbar {
+ 
+body::-webkit-scrollbar-thumb {
+    background: rgb(4, 42, 95);
+    border-radius: 10px; 
+}
+
+.homePageRow::-webkit-scrollbar {
+    height: 15px;
+}
+
+.homePageRow::-webkit-scrollbar-track-piece:end {
+    margin-right: 15px;
+}
+.homePageRow::-webkit-scrollbar-track-piece:start {
+    margin-left: 15px;
+}
+ 
+.homePageRow::-webkit-scrollbar-thumb {
+    background: rgb(4, 42, 95);
     border-radius: 10px;
-    width: 90%;
-    cursor: pointer;
-}
-}
-/* Dont know why this is need but if you remove it it doesnt work */
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-    opacity: 0;
-}
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 40px;
-    opacity: 0;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgb(4, 42, 95); 
-    border-radius: 40px;
-    opacity: 0;
 }
 
 .hiddenCard{

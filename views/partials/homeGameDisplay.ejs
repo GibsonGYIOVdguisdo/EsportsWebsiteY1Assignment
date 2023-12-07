@@ -1,12 +1,12 @@
 <a href="/games/<%=game.game_id%>" class="card card2 hiddenCard cardCustom" id="game<%=game.game_id%>" onclick="sessionStorage.setItem('cameFrom', window.location.href);">
-    <h4 style="overflow-x: hidden; width: 400px;" class="cardHeader">
+    <h4 style="overflow: hidden; width: 400px;" class="cardHeader">
         <%= game.name %>
     </h4>
     <hr>
-    <h4 style="overflow-x: hidden; width: 400px; text-align: left; margin-left: 20px; font-size: 20px;" class="cardHeader">
+    <h4 style="overflow: hidden; width: 400px; text-align: left; margin-left: 20px; font-size: 20px;" class="cardHeader">
         Team size: <%= game.team_size %>
     </h4>
-    <h4 style="overflow-x: hidden; width: 400px; text-align: left; margin-left: 20px; font-size: 20px;" class="cardHeader">
+    <h4 style="overflow: hidden; width: 400px; text-align: left; margin-left: 20px; font-size: 20px;" class="cardHeader">
         Duration: <%= game.duration %>
     </h4>
 </a>
