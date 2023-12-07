@@ -18,6 +18,9 @@ function isInRange(val){
 }
 
 function isNumber(val){
+    if (val === "0"){
+        return(true)
+    }
     return !!parseFloat(val);
 }
 
@@ -125,13 +128,13 @@ function showValidationErrors(errors){
     }
 
     if (!!errors["Duration"].length){
-        document.getElementById("durationStatus").innerText = "The name field" + errorMessages[errors["Duration"][0]]
+        document.getElementById("durationStatus").innerText = "The duration field" + errorMessages[errors["Duration"][0]]
     } else{
         document.getElementById("durationStatus").innerHTML = "<br>"
     }
     
     if (!!errors["Size"].length){
-        document.getElementById("sizeStatus").innerText = "The name field" + errorMessages[errors["Size"][0]]
+        document.getElementById("sizeStatus").innerText = "The size field" + errorMessages[errors["Size"][0]]
     } else{
         document.getElementById("sizeStatus").innerHTML = "<br>"
     }

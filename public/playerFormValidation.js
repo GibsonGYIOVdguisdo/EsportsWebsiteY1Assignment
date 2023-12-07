@@ -8,9 +8,11 @@ function isInteger(val){
 }
 
 function isNumber(val){
+    if (val === "0"){
+        return(true)
+    }
     return !!parseFloat(val);
 }
-
 
 function validateNameValue(val){
     let issues = []

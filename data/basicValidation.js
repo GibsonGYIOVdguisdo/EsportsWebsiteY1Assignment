@@ -18,6 +18,9 @@ function isInRange(val){
 }
 
 function isNumber(val){
+    if (val === "0"){
+        return(true)
+    }
     return !!parseFloat(val);
 }
 
