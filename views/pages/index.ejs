@@ -5,13 +5,13 @@
         let columnCount = 2;
     </script>
     <div class="mainDiv" style="margin-top: 50px;">
-        <p style="font-size: 40px; font-weight: 600; text-align: center; margin-top: 50px;">Games</p>
+        <a href="/games/" style="text-decoration: none; font-size: 40px; font-weight: 600; text-align: center; margin-top: 50px;">Games</a>
         <div class="homePageRow">
             <% results.games.forEach((game)=> { %>
                 <%- include('../partials/homeGameDisplay.ejs', {game: game}) %>
             <% }) %>
         </div>
-        <p style="font-size: 40px; font-weight: 600; text-align: center;  margin-top: 50px;">Players</p>
+        <a href="/players/" style="text-decoration: none; font-size: 40px; font-weight: 600; text-align: center;">Players</a>
         <div>
             <div class="homePageRow">
                 <% results.players.forEach((player)=> { %>

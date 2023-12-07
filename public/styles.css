@@ -103,6 +103,7 @@ body{
 
 .homePageRow{
     border-radius: 20px;
+    margin-bottom: 50px;
     height: 200px;
     display: 80vw;
     overflow: auto;
@@ -171,11 +172,11 @@ body{
     display: inline-block;
     height: 90%;
     margin-top: 10px;
-    transition: 0.2;
+    transition: 0.2s;
 }
 .card2:hover{
     opacity: 0.5;
-    transition: 0.2;
+    transition: 0.2s;
 }
 .cardCustom{
     border-radius: 20px;
