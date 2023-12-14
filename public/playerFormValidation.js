@@ -64,15 +64,13 @@ function showValidationErrors(errors) {
     };
 
     if (!!errors["Name"].length) {
-        document.getElementById("nameStatus").innerText =
-            "The name field" + errorMessages[errors["Name"][0]];
+        document.getElementById("nameStatus").innerText = "The name field" + errorMessages[errors["Name"][0]];
     } else {
         document.getElementById("nameStatus").innerHTML = "<br>";
     }
 
     if (!!errors["Email"].length) {
-        document.getElementById("emailStatus").innerText =
-            "The email field" + errorMessages[errors["Email"][0]];
+        document.getElementById("emailStatus").innerText = "The email field" + errorMessages[errors["Email"][0]];
     } else {
         console.log("asd");
         document.getElementById("emailStatus").innerHTML = "<br>";

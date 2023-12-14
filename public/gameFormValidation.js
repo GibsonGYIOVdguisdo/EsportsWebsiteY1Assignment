@@ -119,22 +119,19 @@ function showValidationErrors(errors) {
         LessThan1: " must be more than 0",
     };
     if (!!errors["Name"].length) {
-        document.getElementById("nameStatus").innerText =
-            "The name field" + errorMessages[errors["Name"][0]];
+        document.getElementById("nameStatus").innerText = "The name field" + errorMessages[errors["Name"][0]];
     } else {
         document.getElementById("nameStatus").innerHTML = "<br>";
     }
 
     if (!!errors["Duration"].length) {
-        document.getElementById("durationStatus").innerText =
-            "The duration field" + errorMessages[errors["Duration"][0]];
+        document.getElementById("durationStatus").innerText = "The duration field" + errorMessages[errors["Duration"][0]];
     } else {
         document.getElementById("durationStatus").innerHTML = "<br>";
     }
 
     if (!!errors["Size"].length) {
-        document.getElementById("sizeStatus").innerText =
-            "The size field" + errorMessages[errors["Size"][0]];
+        document.getElementById("sizeStatus").innerText = "The size field" + errorMessages[errors["Size"][0]];
     } else {
         document.getElementById("sizeStatus").innerHTML = "<br>";
     }
