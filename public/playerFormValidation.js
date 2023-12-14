@@ -1,57 +1,55 @@
-
-function isEmpty(val){
+function isEmpty(val) {
     return !val.trim();
 }
 
-function isInteger(val){
+function isInteger(val) {
     return parseInt(val) === parseFloat(val);
 }
 
-function isNumber(val){
-    if (val === "0"){
-        return(true)
+function isNumber(val) {
+    if (val === "0") {
+        return true;
     }
     return !!parseFloat(val);
 }
 
-function validateNameValue(val){
-    let issues = []
-    if (isEmpty(val)){
-        issues.push("Empty")
+function validateNameValue(val) {
+    let issues = [];
+    if (isEmpty(val)) {
+        issues.push("Empty");
     }
     return issues;
 }
 
-
-function validateEmailValue(val){
-    let issues = []
-    if (isEmpty(val)){
-        issues.push("Empty")
+function validateEmailValue(val) {
+    let issues = [];
+    if (isEmpty(val)) {
+        issues.push("Empty");
     }
-    if (val.indexOf("@") === -1){
-        issues.push("NotEmail")
+    if (val.indexOf("@") === -1) {
+        issues.push("NotEmail");
     }
-    return issues
+    return issues;
 }
 
-function validatePlayerForm(formName){
+function validatePlayerForm(formName) {
     const formToValidate = document.forms[formName];
     const nameField = formToValidate["name"];
     const emailField = formToValidate["email"];
     let errors = {
-        "Name": [],
-        "Email": []
+        Name: [],
+        Email: [],
     };
 
     let valid = true;
 
-    errors["Name"] = validateNameValue(nameField.value)
-    if (!!errors["Name"].length){
+    errors["Name"] = validateNameValue(nameField.value);
+    if (!!errors["Name"].length) {
         valid = false;
     }
 
-    errors["Email"] = validateEmailValue(emailField.value)
-    if (!!errors["Email"].length){
+    errors["Email"] = validateEmailValue(emailField.value);
+    if (!!errors["Email"].length) {
         valid = false;
     }
 
@@ -59,23 +57,25 @@ function validatePlayerForm(formName){
     return valid;
 }
 
-function showValidationErrors(errors){
+function showValidationErrors(errors) {
     let errorMessages = {
-        "Empty": " is required",
-        "NotEmail": " must contain an @ symbol"
+        Empty: " is required",
+        NotEmail: " must contain an @ symbol",
     };
 
-    if (!!errors["Name"].length){
-        document.getElementById("nameStatus").innerText = "The name field" + errorMessages[errors["Name"][0]]
-    } else{
-        document.getElementById("nameStatus").innerHTML = "<br>"
+    if (!!errors["Name"].length) {
+        document.getElementById("nameStatus").innerText =
+            "The name field" + errorMessages[errors["Name"][0]];
+    } else {
+        document.getElementById("nameStatus").innerHTML = "<br>";
     }
 
-    if (!!errors["Email"].length){
-        document.getElementById("emailStatus").innerText = "The email field" + errorMessages[errors["Email"][0]]
-    } else{
-        console.log("asd")
-        document.getElementById("emailStatus").innerHTML = "<br>"
+    if (!!errors["Email"].length) {
+        document.getElementById("emailStatus").innerText =
+            "The email field" + errorMessages[errors["Email"][0]];
+    } else {
+        console.log("asd");
+        document.getElementById("emailStatus").innerHTML = "<br>";
     }
 }
 
@@ -86,18 +86,17 @@ if (urlParams.size) {
     let emailIssues = urlParams.get("Email").split(",");
     let nameIssues = urlParams.get("Name").split(",");
 
-
-    if (nameIssues == ""){
+    if (nameIssues == "") {
         nameIssues = [];
     }
-    if (emailIssues == ""){
+    if (emailIssues == "") {
         emailIssues = [];
     }
 
     var errorsOnLoad = {
-        "Name": nameIssues,
-        "Email": emailIssues
-    }
+        Name: nameIssues,
+        Email: emailIssues,
+    };
 
     console.log(errorsOnLoad);
     showValidationErrors(errorsOnLoad);

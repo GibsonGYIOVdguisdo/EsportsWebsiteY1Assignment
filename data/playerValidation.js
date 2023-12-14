@@ -1,25 +1,25 @@
 const validator = require("./basicValidation.js");
 
-function validateNameValue(val){
-    let issues = []
-    if (validator.isEmpty(val)){
-        issues.push("Empty")
+function validateNameValue(val) {
+    let issues = [];
+    if (validator.isEmpty(val)) {
+        issues.push("Empty");
     }
     return issues;
 }
 
-function validateEmailValue(val){
-    let issues = []
-    if (validator.isEmpty(val)){
-        issues.push("Empty")
+function validateEmailValue(val) {
+    let issues = [];
+    if (validator.isEmpty(val)) {
+        issues.push("Empty");
     }
-    if (val.indexOf("@") === -1){
-        issues.push("NotEmail")
+    if (val.indexOf("@") === -1) {
+        issues.push("NotEmail");
     }
-    return issues
+    return issues;
 }
 
-function validatePlayer(name, email){
+function validatePlayer(name, email) {
     errors = {};
 
     errors["Email"] = validateNameValue(name);
@@ -29,7 +29,6 @@ function validatePlayer(name, email){
     return errors;
 }
 
-
 module.exports = {
-    validatePlayer
+    validatePlayer,
 };

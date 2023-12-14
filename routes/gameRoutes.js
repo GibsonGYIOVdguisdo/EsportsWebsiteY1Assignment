@@ -1,16 +1,22 @@
 const { response } = require("express");
-const gamesController = require("../controllers/games.js")
+const gamesController = require("../controllers/games.js");
 
 const router = (app) => {
     app.get("/games", gamesController.getAllGames);
 
     app.get("/games/add", gamesController.addGamePage);
 
-    app.post("/games/add", [gamesController.performGameValidation, gamesController.addGame]);
+    app.post("/games/add", [
+        gamesController.performGameValidation,
+        gamesController.addGame,
+    ]);
 
     app.get("/games/edit/:id", gamesController.editGamePage);
 
-    app.post("/games/edit/:id", [gamesController.performGameValidation, gamesController.editGame]);
+    app.post("/games/edit/:id", [
+        gamesController.performGameValidation,
+        gamesController.editGame,
+    ]);
 
     app.get("/games/delete/:id", gamesController.deleteGamePage);
 

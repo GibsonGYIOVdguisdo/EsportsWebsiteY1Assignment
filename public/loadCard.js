@@ -1,5 +1,5 @@
 let cardToAffect = document.querySelector(".hiddenCard");
 
 setTimeout(() => {
-    cardToAffect.classList.remove("hiddenCard")
-}, 200)
+    cardToAffect.classList.remove("hiddenCard");
+}, 200);
